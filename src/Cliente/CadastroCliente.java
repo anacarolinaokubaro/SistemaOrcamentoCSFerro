@@ -46,7 +46,7 @@ public class CadastroCliente {
         clientesCadastrados.add(cliente);
     }
 
-    public void imprimirListaClientes(){
+    public static void imprimirListaClientes(){
 
         System.out.println("_____________CLIENTES CADASTRADOS:_____________");
         for (CadastroCliente cadaCliente: clientesCadastrados) {
