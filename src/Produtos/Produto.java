@@ -2,7 +2,7 @@ package Produtos;
 
 import Cliente.CadastroCliente;
 
-public class Produto {
+public class Produto implements MemoriaCalculo {
 
     private int quantidadeItens;
 
@@ -103,13 +103,26 @@ public class Produto {
 
 
     @Override
+    public double valorBarraFerro() {
+        return 0;
+    }
+
+    @Override
+    public double valorEstribo() {
+        return 0;
+    }
+
+    @Override
+    public double valorMargem() {
+        return 0;
+    }
+
+    @Override
     public String toString() {
-        return "Produto{" +
-                "quantidadeItens=" + quantidadeItens +
-                ", quantidadeBarradeFerro=" + quantidadeBarradeFerro +
-                ", mm=" + mm +
-                ", metragem=" + metragem +
-                ", dobraPonta=" + dobraPonta +
-                                '}';
+        return " Qtd ITENS: " + quantidadeItens +
+                " Qtd barra ferro: " + quantidadeBarradeFerro +
+                " Bitola: " + mm +
+                " com " + metragem +
+                "m. ";
     }
 }

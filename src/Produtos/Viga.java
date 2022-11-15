@@ -16,7 +16,7 @@ public class Viga extends Produto implements MemoriaCalculo {
 
     private double aCadaQuanto;
 
-    public Viga(int quantidadeItens, int quantidadeBarradeFerro, BitolaBarraFerroEnum mm, float metragem, boolean dobraPonta, double medidaEstribo1, double medidaEstribo2, double aCadaQuanto) {
+    public Viga(int quantidadeItens, int quantidadeBarradeFerro, BitolaBarraFerroEnum mm, float metragem, double medidaEstribo1, double medidaEstribo2, double aCadaQuanto) {
         super(quantidadeItens, quantidadeBarradeFerro, mm, metragem);
         this.medidaEstribo1 = medidaEstribo1;
         this.medidaEstribo2 = medidaEstribo2;
@@ -51,14 +51,14 @@ public class Viga extends Produto implements MemoriaCalculo {
     public double valorBarraFerro() {
         double vlr = valorBitolaFerro(BitolaBarraFerroEnum.valueOf(String.valueOf(getMm())));
         double percentual = getMetragem() / 12;
-        double valor = (((vlr * percentual) * getQuantidadeBarradeFerro()) * getQuantidadeItens());
+        double valor = (((vlr*percentual)*getQuantidadeBarradeFerro())*getQuantidadeItens());
         return valor;
         }
 
     @Override
     public double valorEstribo() {
         double vlr = valorBitolaFerro(BitolaBarraFerroEnum.ACO_04_20);
-        double qtdEstribo = ((getMetragem() / getaCadaQuanto()) * ((getMedidaEstribo1() + getMedidaEstribo1() + getMedidaEstribo2() + getMedidaEstribo2() + 0.06)))/12;
+        double qtdEstribo = (((getMetragem() / getaCadaQuanto()) * ((getMedidaEstribo1() + getMedidaEstribo1() + getMedidaEstribo2() + getMedidaEstribo2() + 0.06)))/12);
        double valor = (vlr * qtdEstribo);
         return valor;
            }
@@ -74,10 +74,10 @@ public class Viga extends Produto implements MemoriaCalculo {
     @Override
     public String toString() {
         return super.toString()+ "Viga{" +
-                "medidaEstribo1=" + medidaEstribo1 +
-                ", medidaEstribo2=" + medidaEstribo2 +
-                ", aCadaQuanto=" + aCadaQuanto +
-                '}';
+                " Estribo: " + medidaEstribo1 +
+                " X " + medidaEstribo2 +
+                " a cada: " + aCadaQuanto +
+                "cm. ";
     }
 }
 

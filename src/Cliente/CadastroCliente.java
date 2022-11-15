@@ -1,6 +1,7 @@
 package Cliente;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class CadastroCliente {
@@ -14,6 +15,11 @@ public class CadastroCliente {
     public CadastroCliente(String nome) {
         this.nome = nome;
         ID++;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome);
     }
 
     public String getNome() {
@@ -42,10 +48,9 @@ public class CadastroCliente {
 
     @Override
     public String toString() {
-        return "CadastroCliente{" +
-                "nome='" + nome + '\'' +
-                ", endObra='" + endObra + '\'' +
-                ", CPFouCNPJ='" + CPFouCNPJ + '\'' +
-                '}';
+        return "Cliente: " + nome + '\'' +
+                "\nEndereço Obra: " + endObra + '\'' +
+                "\nCpf/Cnpj: " + CPFouCNPJ + '\'' +
+                ". ";
     }
 }

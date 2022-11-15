@@ -46,7 +46,7 @@ public class Principal {
                     System.out.println("Saindo do Sistema");
                     break;
                 default:
-                    System.out.println("Op??o invalida");
+                    System.out.println("Opção invalida");
             }
 
         } while (opcaoSelecionada != SAIR_DO_SISTEMA);
@@ -57,6 +57,7 @@ public class Principal {
 
     private static void orcamento() {
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("_______________ORÇAMENTO________________");
         System.out.println("Escolha um dos três produtos para orçar:" +
                 "VIGA,\n" +
@@ -68,6 +69,7 @@ public class Principal {
         switch (produto) {
             case "VIGA": {
                 ProdutoRepository.viga();
+                ProdutoRepository.imprimirOrcamento();
                 break;
             }
             default:
