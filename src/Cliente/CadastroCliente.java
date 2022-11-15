@@ -50,7 +50,7 @@ public class CadastroCliente {
 
         System.out.println("_____________CLIENTES CADASTRADOS:_____________");
         for (CadastroCliente cadaCliente: clientesCadastrados) {
-            System.out.println(cadaCliente;
+            System.out.println(cadaCliente);
         }
 
     }

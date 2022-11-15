@@ -16,13 +16,12 @@ public class Produto {
 
     private CadastroCliente cliente;
 
-    public Produto(int quantidadeItens, int quantidadeBarradeFerro, BitolaBarraFerroEnum mm, float metragem, boolean dobraPonta, CadastroCliente cliente) {
+
+    public Produto(int quantidadeItens, int quantidadeBarradeFerro, BitolaBarraFerroEnum mm, float metragem) {
         this.quantidadeItens = quantidadeItens;
         this.quantidadeBarradeFerro = quantidadeBarradeFerro;
         this.mm = mm;
         this.metragem = metragem;
-        this.dobraPonta = dobraPonta;
-        this.cliente = cliente;
     }
 
     public int getQuantidadeItens() {
@@ -61,10 +60,6 @@ public class Produto {
         return dobraPonta;
     }
 
-    public void setDobraPonta(boolean dobraPonta) {
-        this.dobraPonta = dobraPonta;
-    }
-
     public CadastroCliente getCliente() {
         return cliente;
     }
@@ -73,40 +68,43 @@ public class Produto {
         this.cliente = cliente;
     }
 
-    public double valoresBitola(BitolaBarraFerroEnum mm) {
-        switch (mm) {
+    public void setDobraPonta(boolean dobraPonta) {
+        this.dobraPonta = dobraPonta;
+    }
+
+    public double valorBitolaFerro(BitolaBarraFerroEnum bitola){
+        switch (bitola){
             case ACO_04_20 -> {
-                return 60.00;
+                return 11.00;
             }
             case ACO_05_00 -> {
-                return 65.00;
+                return 15.00;
             }
             case ACO_06_30 -> {
-                return 70.00;
+                return 20.00;
             }
             case ACO_08_00 -> {
-                return 75.00;
+                return 30.00;
             }
             case ACO_10_00 -> {
-                return 80.00;
+                return 45.00;
             }
             case ACO_12_50 -> {
-                return 90.00;
+                return 55.00;
             }
             case ACO_16_00 -> {
-                return 95.00;
+                return 65.00;
             }
             default -> {
-                return 100.00;
+                return 80.00;
             }
-
         }
     }
+
 
     @Override
     public String toString() {
         return "Produto{" +
-                "cliente=" + cliente +
                 "quantidadeItens=" + quantidadeItens +
                 ", quantidadeBarradeFerro=" + quantidadeBarradeFerro +
                 ", mm=" + mm +
