@@ -40,21 +40,6 @@ public class CadastroCliente {
         this.CPFouCNPJ = CPFouCNPJ;
     }
 
-    private static Set<CadastroCliente> clientesCadastrados = new HashSet<>();
-
-    public void cadastrarClientes (CadastroCliente cliente){
-        clientesCadastrados.add(cliente);
-    }
-
-    public static void imprimirListaClientes(){
-
-        System.out.println("_____________CLIENTES CADASTRADOS:_____________");
-        for (CadastroCliente cadaCliente: clientesCadastrados) {
-            System.out.println(cadaCliente);
-        }
-
-    }
-
     @Override
     public String toString() {
         return "CadastroCliente{" +
