@@ -113,16 +113,16 @@ public class Produto implements MemoriaCalculo {
     }
 
     @Override
-    public double valorMargem() {
-        return 0;
+    public double valorMargem(Double margem) {
+        return margem;
     }
 
     @Override
     public String toString() {
-        return " Qtd ITENS: " + quantidadeItens +
-                " Qtd barra ferro: " + quantidadeBarradeFerro +
+        return " | Qtd ITENS: " + quantidadeItens +
+                "| Qtd barra ferro: " + quantidadeBarradeFerro +
                 " Bitola: " + mm +
-                " com " + metragem +
+                "mm com " + metragem +
                 "m. ";
     }
 }

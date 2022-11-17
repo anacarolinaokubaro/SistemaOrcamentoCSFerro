@@ -64,20 +64,16 @@ public class Viga extends Produto implements MemoriaCalculo {
            }
 
     @Override
-    public double valorMargem() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Qual a margem a ser cosiderada nesse pedido? Exemplo: 30% = 0,30");
-        double margem = scanner.nextDouble();
-        return margem;
+    public double valorMargem(Double margem) { return margem;
         }
 
     @Override
     public String toString() {
-        return super.toString()+ "Viga{" +
-                " Estribo: " + medidaEstribo1 +
-                " X " + medidaEstribo2 +
+        return super.toString()+ "Viga-" +
+                "Estribo: " + medidaEstribo1 +
+                "X" + medidaEstribo2 +
                 " a cada: " + aCadaQuanto +
-                "cm. ";
+                "cm.";
     }
 }
 

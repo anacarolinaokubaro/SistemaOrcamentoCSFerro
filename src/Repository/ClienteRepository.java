@@ -9,7 +9,9 @@ import java.util.Set;
 
 public class ClienteRepository {
 
+
     private static Set<CadastroCliente> clientesCadastrados = new HashSet<>();
+
     public static void cadastrarCliente() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("_______________CADASTRO DE CLIENTE________________");
@@ -33,18 +35,14 @@ public class ClienteRepository {
     }
 
 
-
-
-
-
-    public void cadastrarClientes (CadastroCliente cliente){
+    public void cadastrarClientes(CadastroCliente cliente) {
         clientesCadastrados.add(cliente);
     }
 
-    public static void imprimirListaClientes(){
+    public static void imprimirListaClientes() {
 
         System.out.println("_____________CLIENTES CADASTRADOS:_____________");
-        for (CadastroCliente cadaCliente: clientesCadastrados) {
+        for (CadastroCliente cadaCliente : clientesCadastrados) {
             System.out.println(cadaCliente);
         }
 
@@ -54,12 +52,16 @@ public class ClienteRepository {
         for (CadastroCliente cliente : clientesCadastrados
         ) {
             if (nome.equals(cliente.getNome())) {
-                System.out.println("\n"+cliente);
-            }
+                System.out.println("\n" + cliente);
+            } else if (Objects.isNull(cliente)) {
+                System.out.println(nome);
+            } else System.out.println();
         }
     }
 
+}
 
 
-    }
+
+
 

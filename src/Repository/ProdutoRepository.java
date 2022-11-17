@@ -4,6 +4,7 @@ import Cliente.CadastroCliente;
 import Produtos.BitolaBarraFerroEnum;
 import Produtos.Produto;
 import Produtos.Viga;
+import org.w3c.dom.ls.LSOutput;
 
 import java.text.DateFormat;
 import java.time.LocalDate;
@@ -18,7 +19,7 @@ public class ProdutoRepository {
     public static List<Produto> listaProdutos = new ArrayList<>();
     public static List<Double> listTotal = new ArrayList<>();
 
-
+    private static Double soma = 0.0;
 
     public static String clienteOrcamento(){
         Scanner scanner = new Scanner(System.in);
@@ -103,48 +104,48 @@ public class ProdutoRepository {
 
 
     public static void calculoOrcamento() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Qual a margem a ser cosiderada nesse pedido? Exemplo: 30% = 0,30");
+        Double margem = (1 + scanner.nextDouble());
+
         for (Produto item : listaProdutos
         ) {
-            double valorB = item.valorBarraFerro();
-            double valorE = item.valorEstribo();
-            double valorM = item.valorMargem();
-            double total = (valorB + valorE) * (1 + valorM);
-            listTotal.add(total);
+            Double valorItem = ((item.valorBarraFerro() + item.valorEstribo()) * (item.valorMargem(margem)));
+            listTotal.add(valorItem);
                     }
 
     }
 
-    public static Double valorTotalOrcamento(){
-        Double soma=0.0;
+    public static void valorTotalOrcamento(){
         for (Double vlrtotal : listTotal
-        ) {
-           return soma += vlrtotal.doubleValue();
+             ) {
+            soma += vlrtotal.doubleValue();
         }
-        return null;
     }
 
 
-    public static void imprimirListaProdutoseTotal(){
-         for (Produto cadaItem : listaProdutos
-             )
-            for (Double cadaValor : listTotal
-                 ) {
-                System.out.printf(cadaItem +"|\nR$ %2f", cadaValor);
-            }
 
-        }
+    public static void imprimirListaProdutoseTotal(){
+        for (int i = 0; i < listaProdutos.size(); i++)
+              {
+                System.out.printf(listaProdutos.get(i) + "|\n R$ %.2f \n", listTotal.get(i));
+            }
+         }
+
 
     public static void imprimirOrcamento(){
         LocalDate hoje = LocalDate.now();
         String cliente = clienteOrcamento();
         calculoOrcamento();
-        Double soma = valorTotalOrcamento();
+        valorTotalOrcamento();
 
-        System.out.printf("\n\n                         CS FERRO E AÇO\n           Fone:        (11) 96841-5179\n           CNPJ:        37.115.947/0001-58\n            " + DateFormat.getDateInstance().format(new Date()) + "\n End. Loja DIADEMA: R GUARAPICICA, 123 – ELDORADO, DIADEMA, SÃO PAULO - CEP 09.973-240\n\n ORÇAMENTO PARA:\n");
+        System.out.printf("\n\n                         CS FERRO E AÇO\n           Fone:        (11) 96841-5179\n           CNPJ:        37.115.947/0001-58\n            " + DateFormat.getDateInstance().format(new Date()) + "\n End. Loja DIADEMA: R GUARAPICICA, 123 – ELDORADO, DIADEMA, SÃO PAULO - CEP 09.973-240\nORÇAMENTO PARA:\n");
         ClienteRepository.imprimirClientePorNome(cliente);
         System.out.println("\nOs produtos cotados e seus respectivos custos são:\n");
         imprimirListaProdutoseTotal();
-        System.out.printf("\n\nO Valor total do pedido é R$ %2f ",soma);
+        System.out.printf("\n\nO Valor total do pedido é R$ %.2f ",soma);
+        listTotal.clear();
+        listaProdutos.clear();
     }
 
 }

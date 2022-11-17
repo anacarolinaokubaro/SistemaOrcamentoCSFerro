@@ -4,6 +4,6 @@ public interface MemoriaCalculo {
 
     double valorBarraFerro();
     double valorEstribo();
-    double valorMargem();
+    double valorMargem(Double margem);
 
 }

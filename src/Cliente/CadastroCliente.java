@@ -48,9 +48,9 @@ public class CadastroCliente {
 
     @Override
     public String toString() {
-        return "Cliente: " + nome + '\'' +
-                "\nEndereço Obra: " + endObra + '\'' +
-                "\nCpf/Cnpj: " + CPFouCNPJ + '\'' +
+        return "Cliente: " + nome +
+                "| Endereço Obra: " + endObra +
+                "| Cpf/Cnpj: " + CPFouCNPJ +
                 ". ";
     }
 }
