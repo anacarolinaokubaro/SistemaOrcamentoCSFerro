@@ -4,7 +4,10 @@ public enum ProdutosEnum {
 
     VIGA,
     COLUNA,
-    SAPATA;
+    SAPATA,
+    BARRA,
+    ARAME,
+    TELA;
 
 
 }

@@ -12,16 +12,22 @@ public class Produto implements MemoriaCalculo {
 
     private float metragem;
 
-    private boolean dobraPonta;
-
-    private CadastroCliente cliente;
-
-
-    public Produto(int quantidadeItens, int quantidadeBarradeFerro, BitolaBarraFerroEnum mm, float metragem) {
+      public Produto(int quantidadeItens, int quantidadeBarradeFerro, BitolaBarraFerroEnum mm, float metragem) {
         this.quantidadeItens = quantidadeItens;
         this.quantidadeBarradeFerro = quantidadeBarradeFerro;
         this.mm = mm;
         this.metragem = metragem;
+    }
+
+    public Produto(int quantidadeItens, BitolaBarraFerroEnum mm){
+          this.quantidadeItens = quantidadeItens;
+          this.mm = mm;
+    }
+
+    public Produto(int quantidadeItens, BitolaBarraFerroEnum mm, float metragem) {
+          this.quantidadeItens = quantidadeItens;
+          this.mm = mm;
+          this.metragem = metragem;
     }
 
     public int getQuantidadeItens() {
@@ -56,21 +62,6 @@ public class Produto implements MemoriaCalculo {
         this.metragem = metragem;
     }
 
-    public boolean isDobraPonta() {
-        return dobraPonta;
-    }
-
-    public CadastroCliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(CadastroCliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public void setDobraPonta(boolean dobraPonta) {
-        this.dobraPonta = dobraPonta;
-    }
 
     public double valorBitolaFerro(BitolaBarraFerroEnum bitola){
         switch (bitola){
@@ -78,25 +69,31 @@ public class Produto implements MemoriaCalculo {
                 return 11.00;
             }
             case ACO_05_00 -> {
-                return 15.00;
+                return 16.50;
             }
             case ACO_06_30 -> {
-                return 20.00;
+                return 22.50;
             }
             case ACO_08_00 -> {
-                return 30.00;
+                return 34.00;
             }
             case ACO_10_00 -> {
-                return 45.00;
+                return 45.50;
             }
             case ACO_12_50 -> {
-                return 55.00;
+                return 75.00;
             }
             case ACO_16_00 -> {
-                return 65.00;
+                return 130.00;
+            }
+            case TELA -> {
+                return 100.00;
+            }
+            case ARAME -> {
+                return 11.00;
             }
             default -> {
-                return 80.00;
+                return 230.00;
             }
         }
     }

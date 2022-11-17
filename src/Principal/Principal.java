@@ -13,6 +13,7 @@ import java.util.Scanner;
 
 
 
+
 public class Principal {
 
     Scanner scanner = new Scanner(System.in);
@@ -55,26 +56,56 @@ public class Principal {
 
 
 
-    private static void orcamento() {
+    public static void orcamento() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("_______________ORÇAMENTO________________");
-        System.out.println("Escolha um dos três produtos para orçar:" +
+        System.out.println("Escolha um dos três produtos para orçar:\n" +
                 "VIGA,\n" +
-                "    COLUNA,\n" +
-                "    ou SAPATA;*");
+                "COLUNA,\n" +
+                "SAPATA,\n" +
+                "BARRA,\n" +
+                "ARAME,\n" +
+                "OU TELA. *");
         String produto = scanner.next().toUpperCase();
         ProdutosEnum.valueOf(produto);
+
+        try {
 
         switch (produto) {
             case "VIGA": {
                 ProdutoRepository.viga();
-                ProdutoRepository.imprimirOrcamento();
                 break;
             }
-            default:
+            case "COLUNA": {
+                ProdutoRepository.coluna();
                 break;
+            }
+            case "SAPATA": {
+                ProdutoRepository.sapata();
+                break;
+            }
+            case "BARRA": {
+                ProdutoRepository.barra();
+                break;
+            }
+            case "ARAME": {
+                ProdutoRepository.arame();
+                break;
+            }
+            case "TELA": {
+                ProdutoRepository.tela();
+                break;
+            }
+            default: break;
         }
+
+        } catch (Exception e){
+            System.out.println("Opção não faz parte do Menu, vamos reiniciar");
+            orcamento();
+        }
+
+
     }
 
 

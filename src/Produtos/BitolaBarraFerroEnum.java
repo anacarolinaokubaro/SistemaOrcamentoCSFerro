@@ -9,6 +9,11 @@ public enum BitolaBarraFerroEnum {
     ACO_10_00,
     ACO_12_50,
     ACO_16_00,
-    ACO_20_00;
+
+    ACO_20_00,
+
+    ARAME,
+
+    TELA;
 
 }

@@ -16,11 +16,14 @@ public class Viga extends Produto implements MemoriaCalculo {
 
     private double aCadaQuanto;
 
-    public Viga(int quantidadeItens, int quantidadeBarradeFerro, BitolaBarraFerroEnum mm, float metragem, double medidaEstribo1, double medidaEstribo2, double aCadaQuanto) {
+    private float dobraPonta;
+
+    public Viga(int quantidadeItens, int quantidadeBarradeFerro, BitolaBarraFerroEnum mm, float metragem, double medidaEstribo1, double medidaEstribo2, double aCadaQuanto, float dobraPonta) {
         super(quantidadeItens, quantidadeBarradeFerro, mm, metragem);
         this.medidaEstribo1 = medidaEstribo1;
         this.medidaEstribo2 = medidaEstribo2;
         this.aCadaQuanto = aCadaQuanto;
+        this.dobraPonta = dobraPonta;
     }
 
     public double getMedidaEstribo1() {
@@ -47,10 +50,18 @@ public class Viga extends Produto implements MemoriaCalculo {
         this.aCadaQuanto = aCadaQuanto;
     }
 
+    public float getDobraPonta() {
+        return dobraPonta;
+    }
+
+    public void setDobraPonta(float dobraPonta) {
+        this.dobraPonta = dobraPonta;
+    }
+
     @Override
     public double valorBarraFerro() {
         double vlr = valorBitolaFerro(BitolaBarraFerroEnum.valueOf(String.valueOf(getMm())));
-        double percentual = getMetragem() / 12;
+        double percentual = ((getMetragem()+ getDobraPonta()) / 12);
         double valor = (((vlr*percentual)*getQuantidadeBarradeFerro())*getQuantidadeItens());
         return valor;
         }
@@ -69,11 +80,15 @@ public class Viga extends Produto implements MemoriaCalculo {
 
     @Override
     public String toString() {
-        return super.toString()+ "Viga-" +
-                "Estribo: " + medidaEstribo1 +
+        return " | Qtd ITENS: " + getQuantidadeItens() +
+                " - VIGA/COLUNA - Qtd barra ferro: " + getQuantidadeBarradeFerro() +
+                " Bitola: " + getMm() +
+                "mm com " + getMetragem() +
+                "m. Estribo: " + medidaEstribo1 +
                 "X" + medidaEstribo2 +
                 " a cada: " + aCadaQuanto +
-                "cm.";
+                "m. (dobra ponta de " + dobraPonta +
+                "m.) |";
     }
 }
 

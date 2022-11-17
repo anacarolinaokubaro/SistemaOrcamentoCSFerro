@@ -7,7 +7,7 @@ import java.util.Objects;
 import java.util.Scanner;
 import java.util.Set;
 
-public class ClienteRepository {
+public class ClienteRepository <T> {
 
 
     private static Set<CadastroCliente> clientesCadastrados = new HashSet<>();
@@ -24,10 +24,14 @@ public class ClienteRepository {
         System.out.println("Digite o cpf ou CNPJ:");
         String CPFouCNPJ = scanner.nextLine();
 
+        System.out.println("Digite o contato do cliente:");
+        String contato = scanner.nextLine();
+
         CadastroCliente cliente = new CadastroCliente(nome);
         cliente.setNome(nome);
         cliente.setEndObra(obra);
         cliente.setCPFouCNPJ(CPFouCNPJ);
+        cliente.setContatoCliente(contato);
         clientesCadastrados.add(cliente);
 
 
@@ -35,13 +39,10 @@ public class ClienteRepository {
     }
 
 
-    public void cadastrarClientes(CadastroCliente cliente) {
-        clientesCadastrados.add(cliente);
-    }
 
     public static void imprimirListaClientes() {
 
-        System.out.println("_____________CLIENTES CADASTRADOS:_____________");
+        System.out.println("____________Total de clientes cadastrados: "+ CadastroCliente.ID + "| LISTA:_____________");
         for (CadastroCliente cadaCliente : clientesCadastrados) {
             System.out.println(cadaCliente);
         }

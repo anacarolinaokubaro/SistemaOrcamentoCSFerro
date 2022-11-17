@@ -1,9 +1,8 @@
 package Repository;
 
 import Cliente.CadastroCliente;
-import Produtos.BitolaBarraFerroEnum;
-import Produtos.Produto;
-import Produtos.Viga;
+import Principal.Principal;
+import Produtos.*;
 import org.w3c.dom.ls.LSOutput;
 
 import java.text.DateFormat;
@@ -13,7 +12,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-public class ProdutoRepository {
+public class ProdutoRepository <T>{
 
 
     public static List<Produto> listaProdutos = new ArrayList<>();
@@ -28,9 +27,9 @@ public class ProdutoRepository {
         return nome;
     }
 
-    public static Void viga() {
+    public static void viga() {
         Scanner scanner = new Scanner(System.in);
-        int id = 0;
+
 
         System.out.println("Qual a quantidade de itens a serem produzidos:");
         int qtdItens = scanner.nextInt();
@@ -38,23 +37,80 @@ public class ProdutoRepository {
         System.out.println("Qual a quantidade de barras em cada viga:");
         int qtdBarras = scanner.nextInt();
 
-        System.out.println("Qual a bitola dessas barras:" +
-                "ACO_04_20,\n" +
-                "    ACO_05_00,\n" +
-                "    ACO_06_30,\n" +
-                "    ACO_08_00,\n" +
-                "    ACO_10_00,\n" +
-                "    ACO_12_50,\n" +
-                "    ACO_16_00,\n" +
-                "    ACO_20_00;");
+        System.out.println("Qual a bitola dessas barras: EXEMPLO:" +
+                "ACO_04_20;");
         String bitola = scanner.next();
         BitolaBarraFerroEnum.valueOf(bitola);
 
         System.out.println("Qual a metragem dessa viga:");
         float metragem = scanner.nextFloat();
 
- //       System.out.println("Vai ter dobra, se sim escreva TRUE, se não, FALSE:");
- //       boolean dobra = scanner.nextBoolean();
+        System.out.println("Qual a medida número 1 do estribo: Default 0,09");
+        double medida1 = scanner.nextDouble();
+        if (medida1 == 0) {
+            medida1 = 0.09;
+        } else {
+            double medida11 = medida1;
+        }
+
+        System.out.println("Qual a medida número 2 do estribo: Default 0,20");
+        double medida2 = scanner.nextDouble();
+        if (medida2 == 0) {
+            medida2 = 0.20;
+        } else {
+            double medida12 = medida2;
+        }
+
+        System.out.println("O estribo é a cada quantos centimetros na viga: Default 0,25");
+        double aCada = scanner.nextDouble();
+        if (aCada == 0) {
+            aCada = 0.25;
+        } else {
+            double aCada11 = aCada;
+        }
+
+        System.out.println("Vai ter dobra, se sim escreva SIM, informe medida: Exemplo 0,3m. Se não, escreva 0 (zero).");
+        float dobra = scanner.nextFloat();
+
+
+        Viga orcamento = new Viga(qtdItens,
+                qtdBarras,
+                BitolaBarraFerroEnum.valueOf(bitola),
+                metragem,
+                medida1,
+                medida2,
+                aCada,
+                dobra);
+        listaProdutos.add(orcamento);
+
+
+        System.out.println("Deseja inserir mais um produto?");
+        String resposta = scanner.next().toUpperCase();
+        if (resposta.equals("SIM")) {
+            Principal.orcamento();
+        } else {
+            ProdutoRepository.imprimirOrcamento();
+        }
+
+    }
+
+
+    public static void coluna() {
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.println("Qual a quantidade de itens a serem produzidos:");
+        int qtdItens = scanner.nextInt();
+
+        System.out.println("Qual a quantidade de barras em cada coluna:");
+        int qtdBarras = scanner.nextInt();
+
+        System.out.println("Qual a bitola dessas barras: EXEMPLO: ACO_04_20;");
+        String bitola = scanner.next();
+        BitolaBarraFerroEnum.valueOf(bitola);
+
+        System.out.println("Qual a metragem dessa coluna:");
+        float metragem = scanner.nextFloat();
 
         System.out.println("Qual a medida número 1 do estribo: Default 0,09");
         double medida1 = scanner.nextDouble();
@@ -72,7 +128,7 @@ public class ProdutoRepository {
             double medida12 = medida2;
         }
 
-        System.out.println("O estribo é a cada quantos centimetros na viga: Default 0,25");
+        System.out.println("O estribo é a cada quantos centimetros na coluna: Default 0,25");
         double aCada = scanner.nextDouble();
         if (aCada == 0) {
             aCada = 0.25;
@@ -80,27 +136,168 @@ public class ProdutoRepository {
             double aCada11 = aCada;
         }
 
-        Viga orcamento = new Viga(qtdItens,
+        System.out.println("Vai ter dobra, se sim escreva SIM, informe medida: Exemplo 0,3m. Se não, escreva 0 (zero).");
+        float dobra = scanner.nextFloat();
+
+
+        Coluna orcamento = new Coluna(qtdItens,
                 qtdBarras,
                 BitolaBarraFerroEnum.valueOf(bitola),
                 metragem,
-      //          dobra,
                 medida1,
                 medida2,
-                aCada);
+                aCada,
+                dobra);
         listaProdutos.add(orcamento);
-        id++;
 
 
-        System.out.println("Deseja inserir mais uma viga?");
+        System.out.println("Deseja inserir mais um produto?");
         String resposta = scanner.next().toUpperCase();
         if (resposta.equals("SIM")) {
-            return viga();
-        } else{
-            return null;
+            Principal.orcamento();
+        } else {
+            ProdutoRepository.imprimirOrcamento();
         }
 
     }
+
+
+    public static void sapata() {
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.println("Qual a quantidade de itens a serem produzidos:");
+        int qtdItens = scanner.nextInt();
+
+        System.out.println("Qual a quantidade de barras em cada sapata:");
+        int qtdBarras = scanner.nextInt();
+
+        System.out.println("Qual a bitola dessas barras: EXEMPLO: ACO_10_00;");
+        String bitola = scanner.next();
+        BitolaBarraFerroEnum.valueOf(bitola);
+
+        System.out.println("Qual o comprimento dessa sapata: Default 0,4 ");
+        float metragem = scanner.nextFloat();
+        if (metragem == 0) {
+            metragem = (4/10);
+        } else {
+            float metragem1 = metragem;
+        }
+
+        System.out.println("Qual a altura dessa sapata: Default 0,2 ");
+        double altura = scanner.nextDouble();
+        if (altura == 0) {
+            altura = 0.2;
+        } else {
+            double altura1 = altura;
+        }
+
+
+        System.out.println("Qual a medida da dobra da sapata: Default 0,10");
+        double dobra = scanner.nextDouble();
+        if (dobra == 0) {
+            dobra = 0.10;
+        } else {
+            double dobra1 = dobra;
+        }
+
+        Sapata orcamento = new Sapata(qtdItens,
+                qtdBarras,
+                BitolaBarraFerroEnum.valueOf(bitola),
+                metragem,
+                altura,
+                dobra);
+        listaProdutos.add(orcamento);
+
+
+        System.out.println("Deseja inserir mais um produto?");
+        String resposta = scanner.next().toUpperCase();
+        if (resposta.equals("SIM")) {
+            Principal.orcamento();
+        } else {
+            ProdutoRepository.imprimirOrcamento();
+        }
+
+    }
+
+
+    public static void barra() {
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.println("Qual a quantidade de barras para entregar:");
+        int qtdItens = scanner.nextInt();
+
+        System.out.println("Qual a bitola dessas barras: EXEMPLO: ACO_10_00;");
+        String bitola = scanner.next();
+        BitolaBarraFerroEnum.valueOf(bitola);
+
+        System.out.println("Qual a metragem da barra: Ex 3 m ");
+        float metragem = scanner.nextFloat();
+
+        System.out.println("Vai ter dobra, se sim escreva SIM, informe medida: Exemplo 0,3m. Se não, escreva 0 (zero).");
+        float dobra = scanner.nextFloat();
+
+        Barra orcamento = new Barra(qtdItens,
+                BitolaBarraFerroEnum.valueOf(bitola),
+                metragem,
+                dobra);
+        listaProdutos.add(orcamento);
+
+
+        System.out.println("Deseja inserir mais um produto?");
+        String resposta = scanner.next().toUpperCase();
+        if (resposta.equals("SIM")) {
+            Principal.orcamento();
+        } else {
+            ProdutoRepository.imprimirOrcamento();
+        }
+
+    }
+
+    public static void arame() {
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.println("Quantos Kgs de arame:");
+        int qtdItens = scanner.nextInt();
+
+        Arame orcamento = new Arame(qtdItens);
+        listaProdutos.add(orcamento);
+
+
+        System.out.println("Deseja inserir mais um produto?");
+        String resposta = scanner.next().toUpperCase();
+        if (resposta.equals("SIM")) {
+            Principal.orcamento();
+        } else {
+            ProdutoRepository.imprimirOrcamento();
+        }
+
+    }
+
+    public static void tela() {
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.println("Quantas telas:");
+        int qtdItens = scanner.nextInt();
+
+        Tela orcamento = new Tela(qtdItens);
+        listaProdutos.add(orcamento);
+
+
+        System.out.println("Deseja inserir mais um produto?");
+        String resposta = scanner.next().toUpperCase();
+        if (resposta.equals("SIM")) {
+            Principal.orcamento();
+        } else {
+            ProdutoRepository.imprimirOrcamento();
+        }
+
+    }
+
+
 
 
     public static void calculoOrcamento() {
@@ -139,11 +336,11 @@ public class ProdutoRepository {
         calculoOrcamento();
         valorTotalOrcamento();
 
-        System.out.printf("\n\n                         CS FERRO E AÇO\n           Fone:        (11) 96841-5179\n           CNPJ:        37.115.947/0001-58\n            " + DateFormat.getDateInstance().format(new Date()) + "\n End. Loja DIADEMA: R GUARAPICICA, 123 – ELDORADO, DIADEMA, SÃO PAULO - CEP 09.973-240\nORÇAMENTO PARA:\n");
+        System.out.printf("\n\n                         CS FERRO E AÇO           Fone:        (11) 96841-5179           CNPJ:        37.115.947/0001-58\n                      " + DateFormat.getDateInstance().format(new Date()) + "\n End. Loja DIADEMA: R GUARAPICICA, 123 – ELDORADO, DIADEMA, SP\nORÇAMENTO PARA:\n");
         ClienteRepository.imprimirClientePorNome(cliente);
-        System.out.println("\nOs produtos cotados e seus respectivos custos são:\n");
+        System.out.println("\nOs produtos cotados e seus respectivos custos são:");
         imprimirListaProdutoseTotal();
-        System.out.printf("\n\nO Valor total do pedido é R$ %.2f ",soma);
+        System.out.printf("\nO Valor total do pedido é R$ %.2f ",soma);
         listTotal.clear();
         listaProdutos.clear();
     }

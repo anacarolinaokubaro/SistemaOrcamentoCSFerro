@@ -10,16 +10,13 @@ public class CadastroCliente {
     private String endObra;
     private String CPFouCNPJ;
 
+    private String contatoCliente;
+
     public static int ID;
 
     public CadastroCliente(String nome) {
         this.nome = nome;
         ID++;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(nome);
     }
 
     public String getNome() {
@@ -46,11 +43,25 @@ public class CadastroCliente {
         this.CPFouCNPJ = CPFouCNPJ;
     }
 
+    public String getContatoCliente() {
+        return contatoCliente;
+    }
+
+    public void setContatoCliente(String contatoCliente) {
+        this.contatoCliente = contatoCliente;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome);
+    }
+
     @Override
     public String toString() {
         return "Cliente: " + nome +
                 "| Endereço Obra: " + endObra +
                 "| Cpf/Cnpj: " + CPFouCNPJ +
+                "| Contato: " + contatoCliente +
                 ". ";
     }
 }
