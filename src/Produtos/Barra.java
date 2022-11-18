@@ -4,7 +4,7 @@ public class Barra extends Produto implements MemoriaCalculo{
 
     private double dobraPonta;
 
-    public Barra(int quantidadeItens, BitolaBarraFerroEnum mm, float metragem, double dobraPonta) {
+    public Barra(int quantidadeItens, BitolaBarraFerroEnum mm, double metragem, double dobraPonta) {
         super(quantidadeItens, mm, metragem);
         this.dobraPonta = dobraPonta;
     }

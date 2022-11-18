@@ -37,13 +37,12 @@ public class ProdutoRepository <T>{
         System.out.println("Qual a quantidade de barras em cada viga:");
         int qtdBarras = scanner.nextInt();
 
-        System.out.println("Qual a bitola dessas barras: EXEMPLO:" +
-                "ACO_04_20;");
+        System.out.println("Qual a bitola das barras principais: EXEMPLO: ACO_10_00;");
         String bitola = scanner.next();
         BitolaBarraFerroEnum.valueOf(bitola);
 
         System.out.println("Qual a metragem dessa viga:");
-        float metragem = scanner.nextFloat();
+        double metragem = scanner.nextFloat();
 
         System.out.println("Qual a medida número 1 do estribo: Default 0,09");
         double medida1 = scanner.nextDouble();
@@ -105,12 +104,12 @@ public class ProdutoRepository <T>{
         System.out.println("Qual a quantidade de barras em cada coluna:");
         int qtdBarras = scanner.nextInt();
 
-        System.out.println("Qual a bitola dessas barras: EXEMPLO: ACO_04_20;");
+        System.out.println("Qual a bitola das barras principais: EXEMPLO: ACO_10_00;");
         String bitola = scanner.next();
         BitolaBarraFerroEnum.valueOf(bitola);
 
         System.out.println("Qual a metragem dessa coluna:");
-        float metragem = scanner.nextFloat();
+        double metragem = scanner.nextFloat();
 
         System.out.println("Qual a medida número 1 do estribo: Default 0,09");
         double medida1 = scanner.nextDouble();
@@ -172,16 +171,16 @@ public class ProdutoRepository <T>{
         System.out.println("Qual a quantidade de barras em cada sapata:");
         int qtdBarras = scanner.nextInt();
 
-        System.out.println("Qual a bitola dessas barras: EXEMPLO: ACO_10_00;");
+        System.out.println("Qual a bitola das barras principais: EXEMPLO: ACO_10_00;");
         String bitola = scanner.next();
         BitolaBarraFerroEnum.valueOf(bitola);
 
         System.out.println("Qual o comprimento dessa sapata: Default 0,4 ");
-        float metragem = scanner.nextFloat();
+        double metragem = scanner.nextFloat();
         if (metragem == 0) {
-            metragem = (4/10);
+            metragem = 0.4;
         } else {
-            float metragem1 = metragem;
+            double metragem1 = metragem;
         }
 
         System.out.println("Qual a altura dessa sapata: Default 0,2 ");
@@ -228,12 +227,12 @@ public class ProdutoRepository <T>{
         System.out.println("Qual a quantidade de barras para entregar:");
         int qtdItens = scanner.nextInt();
 
-        System.out.println("Qual a bitola dessas barras: EXEMPLO: ACO_10_00;");
+        System.out.println("Qual a bitola das barras: EXEMPLO: ACO_10_00;");
         String bitola = scanner.next();
         BitolaBarraFerroEnum.valueOf(bitola);
 
         System.out.println("Qual a metragem da barra: Ex 3 m ");
-        float metragem = scanner.nextFloat();
+        double metragem = scanner.nextFloat();
 
         System.out.println("Vai ter dobra, se sim escreva SIM, informe medida: Exemplo 0,3m. Se não, escreva 0 (zero).");
         float dobra = scanner.nextFloat();
@@ -302,8 +301,8 @@ public class ProdutoRepository <T>{
 
     public static void calculoOrcamento() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Qual a margem a ser cosiderada nesse pedido? Exemplo: 30% = 0,30");
-        Double margem = (1 + scanner.nextDouble());
+        System.out.println("Qual a margem a ser cosiderada nesse pedido? Exemplo: 30% ");
+        Double margem = (1 + (scanner.nextDouble()/100));
 
         for (Produto item : listaProdutos
         ) {

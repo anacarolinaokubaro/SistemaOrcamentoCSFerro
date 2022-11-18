@@ -10,9 +10,9 @@ public class Produto implements MemoriaCalculo {
 
     private BitolaBarraFerroEnum mm;
 
-    private float metragem;
+    private double metragem;
 
-      public Produto(int quantidadeItens, int quantidadeBarradeFerro, BitolaBarraFerroEnum mm, float metragem) {
+      public Produto(int quantidadeItens, int quantidadeBarradeFerro, BitolaBarraFerroEnum mm, double metragem) {
         this.quantidadeItens = quantidadeItens;
         this.quantidadeBarradeFerro = quantidadeBarradeFerro;
         this.mm = mm;
@@ -24,7 +24,7 @@ public class Produto implements MemoriaCalculo {
           this.mm = mm;
     }
 
-    public Produto(int quantidadeItens, BitolaBarraFerroEnum mm, float metragem) {
+    public Produto(int quantidadeItens, BitolaBarraFerroEnum mm, double metragem) {
           this.quantidadeItens = quantidadeItens;
           this.mm = mm;
           this.metragem = metragem;
@@ -54,11 +54,11 @@ public class Produto implements MemoriaCalculo {
         this.mm = mm;
     }
 
-    public float getMetragem() {
+    public double getMetragem() {
         return metragem;
     }
 
-    public void setMetragem(float metragem) {
+    public void setMetragem(double metragem) {
         this.metragem = metragem;
     }
 

@@ -1,12 +1,14 @@
 package Produtos;
 
+import java.util.Scanner;
+
 public class Sapata extends Produto implements MemoriaCalculo {
 
     private double altura;
 
     private double dobraLargura;
 
-    public Sapata(int quantidadeItens, int quantidadeBarradeFerro, BitolaBarraFerroEnum mm, float metragem, double altura, double dobraLargura) {
+    public Sapata(int quantidadeItens, int quantidadeBarradeFerro, BitolaBarraFerroEnum mm, double metragem, double altura, double dobraLargura) {
         super(quantidadeItens, quantidadeBarradeFerro, mm, metragem);
         this.altura = altura;
         this.dobraLargura = dobraLargura;
@@ -32,7 +34,7 @@ public class Sapata extends Produto implements MemoriaCalculo {
     @Override
     public double valorBarraFerro() {
         double vlr = valorBitolaFerro(BitolaBarraFerroEnum.valueOf(String.valueOf(getMm())));
-        double percentual = (getMetragem() + getMetragem()) + (getAltura() + getAltura()) + getDobraLargura() / 12;
+        double percentual = (((getMetragem() + getMetragem()) + (getAltura() + getAltura()) + getDobraLargura()) / 12);
         double valor = (((vlr * percentual) * getQuantidadeBarradeFerro()) * getQuantidadeItens());
         return valor;
     }
@@ -45,7 +47,9 @@ public class Sapata extends Produto implements MemoriaCalculo {
 
     @Override
     public double valorMargem(Double margem) {
-        return margem;
+        System.out.println("Informe a margem da SAPATA:");
+        Scanner scanner = new Scanner(System.in);
+        return margem = (1 + (scanner.nextDouble()/100));
     }
 
 

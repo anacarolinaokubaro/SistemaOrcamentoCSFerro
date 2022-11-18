@@ -18,7 +18,7 @@ public class Viga extends Produto implements MemoriaCalculo {
 
     private float dobraPonta;
 
-    public Viga(int quantidadeItens, int quantidadeBarradeFerro, BitolaBarraFerroEnum mm, float metragem, double medidaEstribo1, double medidaEstribo2, double aCadaQuanto, float dobraPonta) {
+    public Viga(int quantidadeItens, int quantidadeBarradeFerro, BitolaBarraFerroEnum mm, double metragem, double medidaEstribo1, double medidaEstribo2, double aCadaQuanto, float dobraPonta) {
         super(quantidadeItens, quantidadeBarradeFerro, mm, metragem);
         this.medidaEstribo1 = medidaEstribo1;
         this.medidaEstribo2 = medidaEstribo2;
@@ -69,8 +69,10 @@ public class Viga extends Produto implements MemoriaCalculo {
     @Override
     public double valorEstribo() {
         double vlr = valorBitolaFerro(BitolaBarraFerroEnum.ACO_04_20);
-        double qtdEstribo = (((getMetragem() / getaCadaQuanto()) * ((getMedidaEstribo1() + getMedidaEstribo1() + getMedidaEstribo2() + getMedidaEstribo2() + 0.06)))/12);
-       double valor = (vlr * qtdEstribo);
+        double MO = getMetragem()*getQuantidadeItens();
+        double vlrArame = (MO/15.0)*valorBitolaFerro(BitolaBarraFerroEnum.ARAME);
+        double qtdEstribo = (((getMetragem() / getaCadaQuanto()) * ((getMedidaEstribo1() + getMedidaEstribo1() + getMedidaEstribo2() + getMedidaEstribo2() + 0.06)/12)) * getQuantidadeItens()) ;
+       double valor = ((vlr * qtdEstribo) + (MO  + vlrArame));
         return valor;
            }
 

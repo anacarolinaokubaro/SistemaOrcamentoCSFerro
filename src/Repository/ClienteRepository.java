@@ -56,7 +56,7 @@ public class ClienteRepository <T> {
                 System.out.println("\n" + cliente);
             } else if (Objects.isNull(cliente)) {
                 System.out.println(nome);
-            } else System.out.println();
+            } else ;
         }
     }
 
