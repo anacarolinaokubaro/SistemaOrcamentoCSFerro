@@ -63,6 +63,7 @@ public class Principal {
         System.out.println("Escolha um dos três produtos para orçar:\n" +
                 "VIGA,\n" +
                 "COLUNA,\n" +
+                "ESTACA,\n" +
                 "SAPATA,\n" +
                 "BARRA,\n" +
                 "ARAME,\n" +
@@ -79,6 +80,10 @@ public class Principal {
             }
             case "COLUNA": {
                 ProdutoRepository.coluna();
+                break;
+            }
+            case "ESTACA": {
+                ProdutoRepository.estaca();
                 break;
             }
             case "SAPATA": {

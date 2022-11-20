@@ -14,19 +14,14 @@ public class Tela extends Produto implements MemoriaCalculo{
     }
 
     @Override
-    public double valorEstribo() {
-        double vlr = 0.0;
-        return vlr;
-    }
-
-    @Override
     public double valorMargem(Double margem) {
         return margem;
     }
 
+
     @Override
     public String toString() {
-        return " | Qtd ITENS: " + getQuantidadeItens() +
+        return "| " + getQuantidadeItens() + " - Qtd ITENS |" +
                 " - TELA MALHA POP. |";
     }
 }

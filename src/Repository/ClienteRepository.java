@@ -38,6 +38,12 @@ public class ClienteRepository <T> {
         System.out.println("CADASTRO FINALIZADO COM SUCESSO!! ACESSE A OPÇÃO 2 PARA CONSULTAR");
     }
 
+    public static String clienteOrcamento(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite o nome do cliente:");
+        String nome = scanner.nextLine();
+        return nome;
+    }
 
 
     public static void imprimirListaClientes() {
@@ -54,7 +60,7 @@ public class ClienteRepository <T> {
         ) {
             if (nome.equals(cliente.getNome())) {
                 System.out.println("\n" + cliente);
-            } else if (Objects.isNull(cliente)) {
+            } else if (cliente.getNome().isEmpty()) {
                 System.out.println(nome);
             } else ;
         }

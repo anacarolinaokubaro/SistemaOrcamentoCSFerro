@@ -14,21 +14,14 @@ public class Arame extends Produto implements MemoriaCalculo{
     }
 
     @Override
-    public double valorEstribo() {
-        double vlr = 0.0;
-        return vlr;
-    }
-
-    @Override
     public double valorMargem(Double margem) {
         return margem;
     }
 
-
-    @Override
+     @Override
     public String toString() {
-        return " | Qtd ITENS: " + getQuantidadeItens() +
-                " - KG DE ARAME RECOZIDO.|";
+        return "| " + getQuantidadeItens() + " - Qtd ITENS |" +
+         " KG DE ARAME RECOZIDO.|";
     }
 
 }

@@ -1,49 +1,19 @@
 package Produtos;
 
-import Cliente.CadastroCliente;
-import Produtos.BitolaBarraFerroEnum;
-import Produtos.MemoriaCalculo;
-import Produtos.Produto;
-
-import java.util.Scanner;
-
-
-public class Viga extends Produto implements MemoriaCalculo, MemoriaCalculoComEstribo {
-
-
-    private double medidaEstribo1;
-
-    private double medidaEstribo2;
+public class Estaca extends Produto implements MemoriaCalculo, MemoriaCalculoComEstribo {
 
     private BitolaBarraFerroEnum mm2;
+    private double diametro;
 
     private double aCadaQuanto;
-
     private float dobraPonta;
 
-    public Viga(int quantidadeItens, int quantidadeBarradeFerro, BitolaBarraFerroEnum mm, double metragem, double medidaEstribo1, double medidaEstribo2, BitolaBarraFerroEnum mm2, double aCadaQuanto, float dobraPonta) {
+    public Estaca(int quantidadeItens, int quantidadeBarradeFerro, BitolaBarraFerroEnum mm, double metragem, BitolaBarraFerroEnum mm2, double diametro, double aCadaQuanto, float dobraPonta) {
         super(quantidadeItens, quantidadeBarradeFerro, mm, metragem);
-        this.medidaEstribo1 = medidaEstribo1;
-        this.medidaEstribo2 = medidaEstribo2;
         this.mm2 = mm2;
+        this.diametro = diametro;
         this.aCadaQuanto = aCadaQuanto;
         this.dobraPonta = dobraPonta;
-    }
-
-    public double getMedidaEstribo1() {
-        return medidaEstribo1;
-    }
-
-    public void setMedidaEstribo1(double medidaEstribo1) {
-        this.medidaEstribo1 = medidaEstribo1;
-    }
-
-    public double getMedidaEstribo2() {
-        return medidaEstribo2;
-    }
-
-    public void setMedidaEstribo2(double medidaEstribo2) {
-        this.medidaEstribo2 = medidaEstribo2;
     }
 
     public BitolaBarraFerroEnum getMm2() {
@@ -54,12 +24,12 @@ public class Viga extends Produto implements MemoriaCalculo, MemoriaCalculoComEs
         this.mm2 = mm2;
     }
 
-    public double getaCadaQuanto() {
-        return aCadaQuanto;
+    public double getDiametro() {
+        return diametro;
     }
 
-    public void setaCadaQuanto(double aCadaQuanto) {
-        this.aCadaQuanto = aCadaQuanto;
+    public void setDiametro(double diametro) {
+        this.diametro = diametro;
     }
 
     public float getDobraPonta() {
@@ -70,52 +40,60 @@ public class Viga extends Produto implements MemoriaCalculo, MemoriaCalculoComEs
         this.dobraPonta = dobraPonta;
     }
 
+    public double getaCadaQuanto() {
+        return aCadaQuanto;
+    }
+
+    public void setaCadaQuanto(double aCadaQuanto) {
+        this.aCadaQuanto = aCadaQuanto;
+    }
+
     @Override
     public double valorBarraFerro() {
         double vlr = valorBitolaFerro(BitolaBarraFerroEnum.valueOf(String.valueOf(getMm())));
         double percentual = ((getMetragem()+ getDobraPonta()) / 12);
         double valor = (((vlr*percentual)*getQuantidadeBarradeFerro())*getQuantidadeItens());
         return valor;
-        }
+    }
 
     @Override
     public double valorEstribo() {
         double vlr = valorBitolaFerro(getMm2());
-        double qtdEstribo = (((getMetragem() / getaCadaQuanto()) * ((getMedidaEstribo1() + getMedidaEstribo1() + getMedidaEstribo2() + getMedidaEstribo2() + 0.06)/12)) * getQuantidadeItens()) ;
-       double valor = (vlr * qtdEstribo);
+        double qtdEstribo =  ( ( ( (getMetragem() / getaCadaQuanto()) * ( 6.283185 * (getDiametro()/2) ) ) * getQuantidadeItens())/12) ;
+        double valor = (vlr * qtdEstribo);
         return valor;
-           }
+    }
 
     @Override
     public double valorMargem(Double margem) { return margem;
-        }
+    }
 
     @Override
     public double valorMaoObra() {
         double MO = getMetragem()*getQuantidadeItens();
         if (getQuantidadeBarradeFerro()>=6){
+            return MO * 2;
+        } else if (getQuantidadeBarradeFerro() < 6 && getQuantidadeBarradeFerro() >=4 ){
             return MO * 1.5;
         } else return MO;
     }
 
     @Override
     public double valorArame() {
-        double vlrArame = (valorMaoObra()/15.0)*valorBitolaFerro(BitolaBarraFerroEnum.ARAME);
+        double vlrArame = ( (valorMaoObra()/15.0) * valorBitolaFerro(BitolaBarraFerroEnum.ARAME) );
         return vlrArame;
     }
 
     @Override
     public String toString() {
         return "| " + getQuantidadeItens() + " - Qtd ITENS |" +
-                " - VIGA/COLUNA - Qtd barra ferro: " + getQuantidadeBarradeFerro() +
+                " - ESTACA - Qtd barra ferro: " + getQuantidadeBarradeFerro() +
                 " Bitola: " + getMm() +
                 "mm com " + getMetragem() +
-                "m. Estribo: " + medidaEstribo1 +
-                "X" + medidaEstribo2 +
-                " a cada: " + aCadaQuanto +
+                "m. Estribo: " + diametro +
+                "m diamêtro a cada: " + aCadaQuanto +
                 "m. com bitola " + mm2 +
                 "(dobra ponta de " + dobraPonta +
                 "m na ponta.) |";
     }
 }
-

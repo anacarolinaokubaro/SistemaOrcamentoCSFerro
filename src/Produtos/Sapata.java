@@ -40,12 +40,6 @@ public class Sapata extends Produto implements MemoriaCalculo {
     }
 
     @Override
-    public double valorEstribo() {
-        double vlr = 0.0;
-        return vlr;
-    }
-
-    @Override
     public double valorMargem(Double margem) {
         System.out.println("Informe a margem da SAPATA:");
         Scanner scanner = new Scanner(System.in);
@@ -55,7 +49,7 @@ public class Sapata extends Produto implements MemoriaCalculo {
 
     @Override
     public String toString() {
-        return " | Qtd ITENS: " + getQuantidadeItens() +
+        return "| " + getQuantidadeItens() + " - Qtd ITENS |" +
                         " - SAPATA - Qtd barra ferro: " + getQuantidadeBarradeFerro() +
                         " Bitola: " + getMm() +
                         "mm. Comprimento: " + getMetragem() +

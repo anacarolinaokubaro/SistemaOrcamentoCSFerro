@@ -2,7 +2,7 @@ package Produtos;
 
 import Cliente.CadastroCliente;
 
-public class Produto implements MemoriaCalculo {
+public class Produto {
 
     private int quantidadeItens;
 
@@ -98,21 +98,6 @@ public class Produto implements MemoriaCalculo {
         }
     }
 
-
-    @Override
-    public double valorBarraFerro() {
-        return 0;
-    }
-
-    @Override
-    public double valorEstribo() {
-        return 0;
-    }
-
-    @Override
-    public double valorMargem(Double margem) {
-        return margem;
-    }
 
     @Override
     public String toString() {

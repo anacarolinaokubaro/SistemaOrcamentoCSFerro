@@ -7,7 +7,8 @@ public enum ProdutosEnum {
     SAPATA,
     BARRA,
     ARAME,
-    TELA;
+    TELA,
+    ESTACA;
 
 
 }
