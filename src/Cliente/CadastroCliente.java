@@ -6,62 +6,64 @@ import java.util.Set;
 
 public class CadastroCliente {
 
-    private String nome;
-    private String endObra;
-    private String CPFouCNPJ;
 
-    private String contatoCliente;
+        private String nome;
+        private String endObra;
+        private String CPFouCNPJ;
 
-    public static int ID;
+        private String contatoCliente;
 
-    public CadastroCliente(String nome) {
-        this.nome = nome;
-        ID++;
-    }
+        public static int ID;
 
-    public String getNome() {
-        return nome;
-    }
+        public CadastroCliente(String nome) {
+            this.nome = nome;
+            ID++;
+        }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+        public String getNome() {
+            return nome;
+        }
 
-    public String getEndObra() {
-        return endObra;
-    }
+        public void setNome(String nome) {
+            this.nome = nome;
+        }
 
-    public void setEndObra(String endObra) {
-        this.endObra = endObra;
-    }
+        public String getEndObra() {
+            return endObra;
+        }
 
-    public String getCPFouCNPJ() {
-        return CPFouCNPJ;
-    }
+        public void setEndObra(String endObra) {
+            this.endObra = endObra;
+        }
 
-    public void setCPFouCNPJ(String CPFouCNPJ) {
-        this.CPFouCNPJ = CPFouCNPJ;
-    }
+        public String getCPFouCNPJ() {
+            return CPFouCNPJ;
+        }
 
-    public String getContatoCliente() {
-        return contatoCliente;
-    }
+        public void setCPFouCNPJ(String CPFouCNPJ) {
+            this.CPFouCNPJ = CPFouCNPJ;
+        }
 
-    public void setContatoCliente(String contatoCliente) {
-        this.contatoCliente = contatoCliente;
-    }
+        public String getContatoCliente() {
+            return contatoCliente;
+        }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(nome);
-    }
+        public void setContatoCliente(String contatoCliente) {
+            this.contatoCliente = contatoCliente;
+        }
 
-    @Override
-    public String toString() {
-        return "Cliente: " + nome +
-                "| Endereço Obra: " + endObra +
-                "| Cpf/Cnpj: " + CPFouCNPJ +
-                "| Contato: " + contatoCliente +
-                ". ";
-    }
+        @Override
+        public int hashCode() {
+            return Objects.hash(nome);
+        }
+
+        @Override
+        public String toString() {
+            return "Cliente: " + nome +
+                    "| Endereço Obra: " + endObra +
+                    "| Cpf/Cnpj: " + CPFouCNPJ +
+                    "| Contato: " + contatoCliente +
+                    ". ";
+        }
+
 }

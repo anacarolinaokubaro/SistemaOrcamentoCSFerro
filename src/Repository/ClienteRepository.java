@@ -9,7 +9,6 @@ import java.util.Set;
 
 public class ClienteRepository <T> {
 
-
     private static Set<CadastroCliente> clientesCadastrados = new HashSet<>();
 
     public static void cadastrarCliente() {
@@ -60,11 +59,12 @@ public class ClienteRepository <T> {
         ) {
             if (nome.equals(cliente.getNome())) {
                 System.out.println("\n" + cliente);
-            } else if (cliente.getNome().isEmpty()) {
-                System.out.println(nome);
-            } else ;
+                break;
+            }
         }
+        System.out.println("\n" + nome);
     }
+
 
 }
 

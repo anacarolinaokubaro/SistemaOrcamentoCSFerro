@@ -62,48 +62,55 @@ public class Principal {
         System.out.println("_______________ORÇAMENTO________________");
         System.out.println("Escolha um dos três produtos para orçar:\n" +
                 "VIGA,\n" +
+                "VIGA2MM,\n" +
                 "COLUNA,\n" +
                 "ESTACA,\n" +
                 "SAPATA,\n" +
                 "BARRA,\n" +
                 "ARAME,\n" +
+                "ESTRIBO, \n" +
                 "OU TELA. *");
         String produto = scanner.next().toUpperCase();
         ProdutosEnum.valueOf(produto);
 
         try {
 
-        switch (produto) {
-            case "VIGA": {
-                ProdutoRepository.viga();
-                break;
+            switch (produto) {
+                case "VIGA": {
+                    ProdutoRepository.viga();
+                    break;
+                }
+                case "COLUNA": {
+                    ProdutoRepository.coluna();
+                    break;
+                }
+                case "ESTACA": {
+                    ProdutoRepository.estaca();
+                    break;
+                }
+                case "SAPATA": {
+                    ProdutoRepository.sapata();
+                    break;
+                }
+                case "BARRA": {
+                    ProdutoRepository.barra();
+                    break;
+                }
+                case "ARAME": {
+                    ProdutoRepository.arame();
+                    break;
+                } case "TELA": {
+                    ProdutoRepository.tela();
+                    break;
+                } case "ESTRIBO": {
+                    ProdutoRepository.estribo();
+                    break;
+                }
+                case "VIGA2MM": {
+                    ProdutoRepository.viga2Bitolas();
+                    break;
+                } default: break;
             }
-            case "COLUNA": {
-                ProdutoRepository.coluna();
-                break;
-            }
-            case "ESTACA": {
-                ProdutoRepository.estaca();
-                break;
-            }
-            case "SAPATA": {
-                ProdutoRepository.sapata();
-                break;
-            }
-            case "BARRA": {
-                ProdutoRepository.barra();
-                break;
-            }
-            case "ARAME": {
-                ProdutoRepository.arame();
-                break;
-            }
-            case "TELA": {
-                ProdutoRepository.tela();
-                break;
-            }
-            default: break;
-        }
 
         } catch (Exception e){
             System.out.println("Opção não faz parte do Menu, vamos reiniciar");

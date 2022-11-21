@@ -28,6 +28,12 @@ public class OrçamentoService {
                         + item2.valorEstribo()
                         + item2.valorMaoObra()
                         + item2.valorArame()) * item2.valorMargem(margem));
+            } else if (item instanceof Viga2Bitolas) {
+                Viga2Bitolas item2 = (Viga2Bitolas) item;
+                valorItem = ((item2.valorBarraFerro()
+                        + item2.valorEstribo()
+                        + item2.valorMaoObra()
+                        + item2.valorArame()) * item2.valorMargem(margem));
             } else if (item instanceof Coluna) {
                 Coluna item2 = (Coluna) item;
                 valorItem = ((item2.valorBarraFerro()
@@ -52,10 +58,13 @@ public class OrçamentoService {
                         + item2.valorEstribo()
                         + item2.valorMaoObra()
                         + item2.valorArame()) * item2.valorMargem(margem));
+            } else if (item instanceof Estribo) {
+                Estribo item2 = (Estribo) item;
+                valorItem = ((item2.valorBarraFerro() * item2.valorMargem(margem)));
             } else System.out.println("Escolha um produto da lista.");
-        listTotal.add(valorItem);
+            listTotal.add(valorItem);
         }
-        }
+    }
 
 
 
@@ -83,9 +92,9 @@ public class OrçamentoService {
         calculoOrcamento();
         valorTotalOrcamento();
 
-        System.out.printf("\n\n                         CS FERRO E AÇO           Fone:        (11) 96841-5179           CNPJ:        37.115.947/0001-58\n                      " + DateFormat.getDateInstance().format(new Date()) + "\n End. Loja DIADEMA: R GUARAPICICA, 123 – ELDORADO, DIADEMA, SP\nORÇAMENTO PARA:\n");
+        System.out.printf("\n\n   CS FERRO E AÇO           Fone:        (11) 96841-5179           CNPJ:        37.115.947/0001-58\n End. Loja DIADEMA: R GUARAPICICA, 123, ELDORADO, DIADEMA, SP\n" + DateFormat.getDateInstance().format(new Date()) + "\nORÇAMENTO PARA:");
         ClienteRepository.imprimirClientePorNome(cliente);
-        System.out.println("\nOs produtos cotados e seus respectivos custos são:");
+        System.out.println("\n\nOs produtos cotados e seus respectivos custos são:");
         imprimirListaProdutoseTotal();
         System.out.printf("\nO Valor total do pedido é R$ %.2f ",soma);
         listTotal.clear();

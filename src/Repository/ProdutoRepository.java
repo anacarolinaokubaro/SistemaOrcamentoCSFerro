@@ -16,6 +16,7 @@ import java.util.Scanner;
 public class ProdutoRepository <T>{
 
 
+
     public static List<Produto> listaProdutos = new ArrayList<>();
 
     public static void viga() {
@@ -26,7 +27,7 @@ public class ProdutoRepository <T>{
         int qtdItens = scanner.nextInt();
 
         System.out.println("Qual a metragem dessa viga:");
-        double metragem = scanner.nextFloat();
+        double metragem = scanner.nextDouble();
 
         System.out.println("Qual a quantidade de barras em cada viga:");
         int qtdBarras = scanner.nextInt();
@@ -88,6 +89,86 @@ public class ProdutoRepository <T>{
     }
 
 
+
+    public static void viga2Bitolas() {
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.println("Qual a quantidade de itens a serem produzidos:");
+        int qtdItens = scanner.nextInt();
+
+        System.out.println("Qual a metragem dessa viga:");
+        double metragem = scanner.nextDouble();
+
+        System.out.println("Qual a PRIMEIRA quantidade de barras em cada viga:");
+        int qtdBarras = scanner.nextInt();
+
+        System.out.println("Qual a bitola das barras principais: EXEMPLO: 10");
+        double bitola = scanner.nextDouble();
+
+        System.out.println("Qual a SEGUNDA quantidade de barras em cada viga:");
+        int qtdBarras2 = scanner.nextInt();
+
+        System.out.println("Qual a bitola das barras principais: EXEMPLO: 10");
+        double bitola3 = scanner.nextDouble();
+
+        System.out.println("Qual a medida1 do estribo: Default 0,09");
+        double medida1 = scanner.nextDouble();
+        if (medida1 == 0) {
+            medida1 = 0.09;
+        } else {
+            double medida11 = medida1;
+        }
+
+        System.out.println("Qual a medida2 do estribo: Default 0,20");
+        double medida2 = scanner.nextDouble();
+        if (medida2 == 0) {
+            medida2 = 0.20;
+        } else {
+            double medida12 = medida2;
+        }
+
+        System.out.println("O estribo é a cada quantos centimetros na viga: Default 0,25");
+        double aCada = scanner.nextDouble();
+        if (aCada == 0) {
+            aCada = 0.25;
+        } else {
+            double aCada11 = aCada;
+        }
+
+        System.out.println("Qual a bitola do estribo: EXEMPLO: 4,2");
+        double bitola2 = scanner.nextDouble();
+
+        System.out.println("Vai ter dobra: SIM- informe a medida: Ex 0,3m. Se não - escreva 0 (zero).");
+        float dobra = scanner.nextFloat();
+
+
+        Viga2Bitolas orcamento = new Viga2Bitolas(qtdItens,
+                qtdBarras,
+                BitolaBarraFerroEnum.getBynumero(bitola),
+                metragem,
+                medida1,
+                medida2,
+                BitolaBarraFerroEnum.getBynumero(bitola2),
+                aCada,
+                dobra,
+                qtdBarras2,
+                BitolaBarraFerroEnum.getBynumero(bitola3));
+        listaProdutos.add(orcamento);
+
+
+        System.out.println("Deseja inserir mais um produto?");
+        String resposta = scanner.next().toUpperCase();
+        if (resposta.equals("SIM")) {
+            Principal.orcamento();
+        } else {
+            OrçamentoService.imprimirOrcamento();
+        }
+
+    }
+
+
+
     public static void coluna() {
         Scanner scanner = new Scanner(System.in);
 
@@ -96,7 +177,7 @@ public class ProdutoRepository <T>{
         int qtdItens = scanner.nextInt();
 
         System.out.println("Qual a metragem dessa viga:");
-        double metragem = scanner.nextFloat();
+        double metragem = scanner.nextDouble();
 
         System.out.println("Qual a quantidade de barras em cada viga:");
         int qtdBarras = scanner.nextInt();
@@ -199,6 +280,52 @@ public class ProdutoRepository <T>{
                 diametro,
                 aCada,
                 dobra);
+        listaProdutos.add(orcamento);
+
+
+        System.out.println("Deseja inserir mais um produto?");
+        String resposta = scanner.next().toUpperCase();
+        if (resposta.equals("SIM")) {
+            Principal.orcamento();
+        } else {
+            OrçamentoService.imprimirOrcamento();
+        }
+
+    }
+
+
+
+    public static void estribo() {
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.println("Qual a quantidade de itens a serem produzidos:");
+        int qtdItens = scanner.nextInt();
+
+        System.out.println("Qual a medida1 do estribo: Default 0,09");
+        double medida1 = scanner.nextDouble();
+        if (medida1 == 0) {
+            medida1 = 0.09;
+        } else {
+            double medida11 = medida1;
+        }
+
+        System.out.println("Qual a medida2 do estribo: Default 0,20");
+        double medida2 = scanner.nextDouble();
+        if (medida2 == 0) {
+            medida2 = 0.20;
+        } else {
+            double medida12 = medida2;
+        }
+
+        System.out.println("Qual a bitola do estribo: EXEMPLO: 4,2");
+        double bitola2 = scanner.nextDouble();
+
+
+        Estribo orcamento = new Estribo(qtdItens,
+                BitolaBarraFerroEnum.getBynumero(bitola2),
+                medida1,
+                medida2);
         listaProdutos.add(orcamento);
 
 
@@ -346,7 +473,6 @@ public class ProdutoRepository <T>{
         }
 
     }
-
 
 
 
