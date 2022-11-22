@@ -32,10 +32,9 @@ public class Barra extends Produto implements MemoriaCalculo{
 
     @Override
     public String toString() {
-        return "| " + getQuantidadeItens() + " - Qtd ITENS |" +
-                " - BARRA RETA - Bitola: " + getMm() +
+        return "| " + getQuantidadeItens() + " - BARRAS - de " + getMm() +
                 "mm com " + getMetragem() +
                 "m. (Dobra de " + dobraPonta +
-                " m na ponta.) |";
+                "m na ponta.) |";
     }
 }

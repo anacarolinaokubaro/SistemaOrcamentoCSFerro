@@ -21,7 +21,6 @@ public class Tela extends Produto implements MemoriaCalculo{
 
     @Override
     public String toString() {
-        return "| " + getQuantidadeItens() + " - Qtd ITENS |" +
-                " - TELA MALHA POP. |";
+        return "| " + getQuantidadeItens() + " - TELAS - MALHA POP. |";
     }
 }

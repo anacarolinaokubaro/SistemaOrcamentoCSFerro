@@ -20,8 +20,7 @@ public class Arame extends Produto implements MemoriaCalculo{
 
      @Override
     public String toString() {
-        return "| " + getQuantidadeItens() + " - Qtd ITENS |" +
-         " KG DE ARAME RECOZIDO.|";
+        return "| " + getQuantidadeItens() + " - KGS DE ARAME RECOZIDO.|";
     }
 
 }
