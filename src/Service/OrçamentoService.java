@@ -6,13 +6,15 @@ import Repository.ProdutoRepository;
 
 import java.text.DateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
-public class OrçamentoService {
+public class OrçamentoService <T> {
 
     public static List<Double> listTotal = new ArrayList<>();
 
-    private static Double soma = 0.0;
+    //public static List<T> orcamento = new ArrayList<>();
+
 
     public static void calculoOrcamento() {
         Scanner scanner = new Scanner(System.in);
@@ -63,16 +65,8 @@ public class OrçamentoService {
                 valorItem = ((item2.valorBarraFerro() * item2.valorMargem(margem)));
             } else System.out.println("Escolha um produto da lista.");
             listTotal.add(valorItem);
-        }
-    }
-
-
-
-
-    public static void valorTotalOrcamento(){
-        for (Double vlrtotal : listTotal
-        ) {
-            soma += vlrtotal.doubleValue();
+            //orcamento.add(item);
+            //orcamento.add(valorItem);
         }
     }
 
@@ -82,7 +76,7 @@ public class OrçamentoService {
         for (int i = 0; i < ProdutoRepository.listaProdutos.size(); i++)
         {
             System.out.printf(ProdutoRepository.listaProdutos.get(i) + "|\n R$ %.2f \n", listTotal.get(i));
-        }
+                  }
     }
 
 
@@ -90,16 +84,16 @@ public class OrçamentoService {
         LocalDate hoje = LocalDate.now();
         String cliente = ClienteRepository.clienteOrcamento();
         calculoOrcamento();
-        valorTotalOrcamento();
 
-        System.out.printf("\n\n   CS FERRO E AÇO           Fone:        (11) 96841-5179           CNPJ:        37.115.947/0001-58\n\n" + DateFormat.getDateInstance().format(new Date()) + "\n\nORÇAMENTO PARA:");
+        System.out.printf("\n\n   CS FERRO E AÇO           Fone:        (11) 96841-5179           CNPJ:        37.115.947/0001-58\n\n " + LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/YYYY")) + "\n\nORÇAMENTO PARA:");
         ClienteRepository.imprimirClientePorNome(cliente);
         System.out.println("\n\nOs produtos cotados e seus respectivos custos são:");
         imprimirListaProdutoseTotal();
-        System.out.printf("\nVALOR TOTAL : R$ %.2f ",soma);
+        System.out.printf("\nVALOR TOTAL : R$ %.2f ",listTotal.stream().mapToDouble(item -> item.doubleValue()).sum());
+        System.out.println("\nCondição de pagamento à vista até o dia "+ LocalDate.now().plusDays(5).format(DateTimeFormatter.ofPattern("dd/MM/YYYY")));
         listTotal.clear();
         ProdutoRepository.listaProdutos.clear();
-        soma=0.0;
+
     }
 
 

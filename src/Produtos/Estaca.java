@@ -86,13 +86,14 @@ public class Estaca extends Produto implements MemoriaCalculo, MemoriaCalculoCom
 
     @Override
     public String toString() {
-        return "| " + getQuantidadeItens() + " - ESTACAS - com " + getQuantidadeBarradeFerro() +
+        return "| " + getQuantidadeItens() +
+                " ESTACAS - " + getMetragem() +
+                "mts C/ " + getQuantidadeBarradeFerro() +
                 " ferros de " + getMm() +
-                "mm com " + getMetragem() +
-                "m. Estribo: " + diametro +
-                "m diâmetro a cada: " + aCadaQuanto +
-                "m. com " + mm2 +
-                "mm (dobra ponta de " + dobraPonta +
-                "m na ponta.) |";
+                "mm.\nEstribo: " + diametro +
+                "m de diâmetro a cada: " + aCadaQuanto +
+                "m. de " + mm2 +
+                "mm - dobra de " + dobraPonta +
+                "m na ponta |";
     }
 }

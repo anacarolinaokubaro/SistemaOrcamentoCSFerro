@@ -49,11 +49,12 @@ public class Sapata extends Produto implements MemoriaCalculo {
 
     @Override
     public String toString() {
-        return "| " + getQuantidadeItens() + " - SAPATAS - com " + getQuantidadeBarradeFerro() +
+        return "| " + getQuantidadeItens() +
+                " SAPATAS - C/ " + getQuantidadeBarradeFerro() +
                         " ferros de " + getMm() +
-                        "mm. Comprimento de " + getMetragem() +
-                        "m. Altura de " + altura +
-                "m e Largura de " + dobraLargura +
+                        "mm. Comprimento: " + getMetragem() +
+                        "m; largura: " + dobraLargura +
+                "m; altura: " + altura +
                 "m. |";
     }
 }

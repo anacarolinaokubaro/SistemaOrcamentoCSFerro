@@ -106,15 +106,16 @@ public class Viga extends Produto implements MemoriaCalculo, MemoriaCalculoComEs
 
     @Override
     public String toString() {
-        return "| " + getQuantidadeItens() + " - VIGAS - com " + getQuantidadeBarradeFerro() +
+        return "| " + getQuantidadeItens() +
+                " VIGAS - " + getMetragem() +
+                "mts C/ " + getQuantidadeBarradeFerro() +
                 " ferros de " + getMm() +
-                "mm com " + getMetragem() +
-                "m. Estribo: " + medidaEstribo1 +
+                "mm.\nEstribo: " + medidaEstribo1 +
                 "X" + medidaEstribo2 +
                 " a cada: " + aCadaQuanto +
-                "m. com " + mm2 +
-                "mm. (dobra ponta de " + dobraPonta +
-                "m na ponta.) |";
+                "m (" + mm2 +
+                "mm) - dobra de " + dobraPonta +
+                "m na ponta |";
     }
 }
 

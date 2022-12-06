@@ -39,16 +39,17 @@ public class Viga2Bitolas extends Viga implements MemoriaCalculo, MemoriaCalculo
 
     @Override
     public String toString() {
-        return "| " + getQuantidadeItens() + " - VIGAS - com " + getQuantidadeBarradeFerro() +
+        return "| " + getQuantidadeItens() +
+                " VIGAS - " + getMetragem() +
+                "mts c/ "+ getQuantidadeBarradeFerro() +
                 " ferros de " + getMm() +
                 "mm + " + quantidadeBarradeFerro2 +
                 " ferros de " + mm3 +
-                "mm com " + getMetragem() +
-                "m. Estribo: " + getMedidaEstribo1() +
+                "mm.\nEstribo: " + getMedidaEstribo1() +
                 "X" + getMedidaEstribo2() +
                 " a cada: " + getaCadaQuanto() +
-                "m. de " + getMm2() +
-                "mm. (dobra ponta de " + getDobraPonta() +
-                "m na ponta.) |";
+                "m ("+ getMm2() +
+                "mm) - dobra de " + getDobraPonta() +
+                "m na ponta |";
     }
 }

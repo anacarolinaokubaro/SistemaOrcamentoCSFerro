@@ -46,9 +46,9 @@ public class Estribo extends Produto implements MemoriaCalculo{
 
     @Override
     public String toString() {
-        return "| " + getQuantidadeItens() + " - ESTRIBOS - " + medidaEstribo1 +
+        return "| " + getQuantidadeItens() + " ESTRIBOS - " + medidaEstribo1 +
                 "m X " + medidaEstribo2 +
-                "m com bitola " + getMm() +
+                "m de " + getMm() +
                 "mm. |";
     }
 }

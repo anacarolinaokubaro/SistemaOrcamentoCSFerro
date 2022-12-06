@@ -58,7 +58,7 @@ public class Principal {
 
     public static void orcamento() {
         Scanner scanner = new Scanner(System.in);
-
+        try {
         System.out.println("_______________ORÇAMENTO________________");
         System.out.println("Escolha um dos três produtos para orçar:\n" +
                 "VIGA,\n" +
@@ -73,7 +73,7 @@ public class Principal {
         String produto = scanner.next().toUpperCase();
         ProdutosEnum.valueOf(produto);
 
-        try {
+
 
             switch (produto) {
                 case "VIGA": {
@@ -110,11 +110,13 @@ public class Principal {
                     ProdutoRepository.viga2Bitolas();
                     break;
                 } default: break;
+
             }
 
-        } catch (Exception e){
-            System.out.println("Opção não faz parte do Menu, vamos reiniciar");
+        } catch (IllegalArgumentException e){
+            System.out.println("Opção não faz parte do Menu, digite corretamente.");
             orcamento();
+        }
         }
 
 
@@ -122,4 +124,4 @@ public class Principal {
 
 
 
-}
+

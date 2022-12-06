@@ -8,15 +8,16 @@ public class Coluna extends Viga implements MemoriaCalculo, MemoriaCalculoComEst
     }
     @Override
     public String toString() {
-        return "| " + getQuantidadeItens() + " - COLUNAS - com " + getQuantidadeBarradeFerro() +
+        return "| " + getQuantidadeItens() +
+                " COLUNAS - " + getMetragem() +
+                "mts C/ " + getQuantidadeBarradeFerro() +
                 " ferros de " + getMm() +
-                "mm com " + getMetragem() +
-                "m. Estribo: " + getMedidaEstribo1() +
-                "m X " + getMedidaEstribo2() +
-                "m a cada: " + getaCadaQuanto() +
-                "m, com " + getMm2() +
-                "mm. (dobra ponta de " + getDobraPonta() +
-                "m na ponta.) |";
+                "mm.\nEstribo: " + getMedidaEstribo1() +
+                " X " + getMedidaEstribo2() +
+                " a cada: " + getaCadaQuanto() +
+                "m (" + getMm2() +
+                "mm) - dobra de " + getDobraPonta() +
+                "m na ponta |";
     }
 
 

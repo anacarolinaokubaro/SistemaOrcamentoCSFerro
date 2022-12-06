@@ -1,6 +1,7 @@
 package Repository;
 
 import Cliente.CadastroCliente;
+import Service.OrçamentoService;
 
 import java.util.HashSet;
 import java.util.Objects;
@@ -9,7 +10,7 @@ import java.util.Set;
 
 public class ClienteRepository <T> {
 
-    private static Set<CadastroCliente> clientesCadastrados = new HashSet<>();
+    public static Set<CadastroCliente> clientesCadastrados = new HashSet<>();
 
     public static void cadastrarCliente() {
         Scanner scanner = new Scanner(System.in);
@@ -59,6 +60,7 @@ public class ClienteRepository <T> {
         ) {
             if (nome.equals(cliente.getNome())) {
                 System.out.println("\n" + cliente);
+              //  OrçamentoService.orcamento.add(cliente);
                 break;
             }
         }
