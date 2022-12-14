@@ -59,7 +59,7 @@ public class CadastroCliente {
 
         @Override
         public String toString() {
-            return "Cliente: " + nome +
+            return  "Cliente: " + nome +
                     "| Endereço Obra: " + endObra +
                     "| Cpf/Cnpj: " + CPFouCNPJ +
                     "| Contato: " + contatoCliente +

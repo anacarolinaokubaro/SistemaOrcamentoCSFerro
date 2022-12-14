@@ -3,6 +3,8 @@ package Principal;
 import Cliente.CadastroCliente;
 import Produtos.*;
 import Repository.ClienteRepository;
+import Repository.OrçamentoRepository;
+import Repository.PedidoRepository;
 import Repository.ProdutoRepository;
 import com.sun.jdi.Value;
 
@@ -24,11 +26,8 @@ public class Principal {
         final int SAIR_DO_SISTEMA = 4;
         int opcaoSelecionada = 0;
         do {
-            System.out.println("\n\nSelecione a opção desejada:");
-            System.out.println("1 - Cadastrar Cliente");
-            System.out.println("2 - Ver Clientes Cadastrados");
-            System.out.println("3 - Realizar orçamento");
-            System.out.println("4 - Sair");
+
+            System.out.println("\n\nSelecione a opção desejada:\n\n1 - Cadastrar Cliente\n2 - Ver Clientes Cadastrados\n3 - Realizar orçamento\n4 - Ver lista de Orçamentos\n5 - Converter Orçamento em Pedido\n6 - Ver lista de Pedidos\n7 - Sair");
 
             Scanner scanner = new Scanner(System.in);
             opcaoSelecionada = scanner.nextInt();
@@ -44,6 +43,15 @@ public class Principal {
                     orcamento();
                     break;
                 case 4:
+                    OrçamentoRepository.imprimirOrçamentos();
+                    break;
+                case 5:
+                    PedidoRepository.cadastrarListaPedido();
+                    break;
+                case 6:
+                    PedidoRepository.imprimirPedidos();
+                    break;
+                case 7:
                     System.out.println("Saindo do Sistema");
                     break;
                 default:

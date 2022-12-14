@@ -2,9 +2,9 @@ package Service;
 
 import Produtos.*;
 import Repository.ClienteRepository;
+import Repository.OrçamentoRepository;
 import Repository.ProdutoRepository;
 
-import java.text.DateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -12,8 +12,6 @@ import java.util.*;
 public class OrçamentoService <T> {
 
     public static List<Double> listTotal = new ArrayList<>();
-
-    //public static List<T> orcamento = new ArrayList<>();
 
 
     public static void calculoOrcamento() {
@@ -65,8 +63,6 @@ public class OrçamentoService <T> {
                 valorItem = ((item2.valorBarraFerro() * item2.valorMargem(margem)));
             } else System.out.println("Escolha um produto da lista.");
             listTotal.add(valorItem);
-            //orcamento.add(item);
-            //orcamento.add(valorItem);
         }
     }
 
@@ -82,19 +78,25 @@ public class OrçamentoService <T> {
 
     public static void imprimirOrcamento(){
         LocalDate hoje = LocalDate.now();
-        String cliente = ClienteRepository.clienteOrcamento();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite o nome do cliente:");
+        String nome = scanner.nextLine();
         calculoOrcamento();
 
         System.out.printf("\n\n   CS FERRO E AÇO           Fone:        (11) 96841-5179           CNPJ:        37.115.947/0001-58\n\n " + LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/YYYY")) + "\n\nORÇAMENTO PARA:");
-        ClienteRepository.imprimirClientePorNome(cliente);
+        ClienteRepository.imprimirClientePorNome(nome);
         System.out.println("\n\nOs produtos cotados e seus respectivos custos são:");
         imprimirListaProdutoseTotal();
         System.out.printf("\nVALOR TOTAL : R$ %.2f ",listTotal.stream().mapToDouble(item -> item.doubleValue()).sum());
         System.out.println("\nCondição de pagamento à vista até o dia "+ LocalDate.now().plusDays(5).format(DateTimeFormatter.ofPattern("dd/MM/YYYY")));
+
+        OrçamentoRepository.cadastrarListaOrçamento(nome);
+        OrçamentoRepository.listaOrçamento.stream().forEach(System.out::println);
         listTotal.clear();
         ProdutoRepository.listaProdutos.clear();
-
+        OrçamentoRepository.listaOrçamento.stream().forEach(System.out::println);
     }
+
 
 
 }

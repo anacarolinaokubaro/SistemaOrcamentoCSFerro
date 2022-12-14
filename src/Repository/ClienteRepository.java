@@ -3,14 +3,12 @@ package Repository;
 import Cliente.CadastroCliente;
 import Service.OrçamentoService;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class ClienteRepository <T> {
 
     public static Set<CadastroCliente> clientesCadastrados = new HashSet<>();
+
 
     public static void cadastrarCliente() {
         Scanner scanner = new Scanner(System.in);
@@ -38,34 +36,27 @@ public class ClienteRepository <T> {
         System.out.println("CADASTRO FINALIZADO COM SUCESSO!! ACESSE A OPÇÃO 2 PARA CONSULTAR");
     }
 
-    public static String clienteOrcamento(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Digite o nome do cliente:");
-        String nome = scanner.nextLine();
-        return nome;
-    }
-
 
     public static void imprimirListaClientes() {
 
         System.out.println("____________Total de clientes cadastrados: "+ CadastroCliente.ID + "| LISTA:_____________");
-        for (CadastroCliente cadaCliente : clientesCadastrados) {
-            System.out.println(cadaCliente);
-        }
+        clientesCadastrados.stream().sorted().forEach(System.out::println);
 
     }
 
     public static void imprimirClientePorNome(String nome) {
-        for (CadastroCliente cliente : clientesCadastrados
-        ) {
-            if (nome.equals(cliente.getNome())) {
-                System.out.println("\n" + cliente);
-              //  OrçamentoService.orcamento.add(cliente);
-                break;
-            }
+        var clientesStream = clientesCadastrados.stream();
+        var clienteFiltrado = clientesStream
+                .filter(item -> item.getNome().equals(nome))
+                .findFirst();
+        if (Objects.nonNull(clienteFiltrado)){
+            System.out.println(nome);
+        } else {
+            System.out.println(clienteFiltrado);
         }
-        System.out.println("\n" + nome);
     }
+
+
 
 
 }
