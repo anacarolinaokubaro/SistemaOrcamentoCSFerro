@@ -1,8 +1,10 @@
 package Repository;
 
 import Cliente.CadastroCliente;
+import Resources.GravadorBancodeDados;
 import Service.OrçamentoService;
 
+import java.io.IOException;
 import java.util.*;
 
 public class ClienteRepository <T> {
@@ -10,7 +12,7 @@ public class ClienteRepository <T> {
     public static Set<CadastroCliente> clientesCadastrados = new HashSet<>();
 
 
-    public static void cadastrarCliente() {
+    public static void cadastrarCliente() throws IOException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("_______________CADASTRO DE CLIENTE________________");
         System.out.println("Digite O NOME do Cliente:*");
@@ -31,35 +33,39 @@ public class ClienteRepository <T> {
         cliente.setCPFouCNPJ(CPFouCNPJ);
         cliente.setContatoCliente(contato);
         clientesCadastrados.add(cliente);
+        GravadorBancodeDados.writeCadastroClientesList();
 
 
         System.out.println("CADASTRO FINALIZADO COM SUCESSO!! ACESSE A OPÇÃO 2 PARA CONSULTAR");
     }
 
 
-    public static void imprimirListaClientes() {
+    public static void imprimirListaClientes() throws IOException, ClassNotFoundException {
 
         System.out.println("____________Total de clientes cadastrados: "+ CadastroCliente.ID + "| LISTA:_____________");
-        clientesCadastrados.stream().sorted().forEach(System.out::println);
+        clientesCadastrados.stream().sorted(Comparator.comparing(CadastroCliente::getNome)) .forEach(System.out::println);
+        GravadorBancodeDados.readArquivoCliente();
 
     }
 
-    public static void imprimirClientePorNome(String nome) {
+    public static String imprimirClientePorNome(String nome) {
         var clientesStream = clientesCadastrados.stream();
         var clienteFiltrado = clientesStream
                 .filter(item -> item.getNome().equals(nome))
-                .findFirst();
-        if (Objects.nonNull(clienteFiltrado)){
-            System.out.println(nome);
+                .findFirst().orElse(null);
+        if (Objects.isNull(clienteFiltrado)){
+            return nome;
         } else {
             System.out.println(clienteFiltrado);
+            return clienteFiltrado.toString();
+        }
         }
     }
 
 
 
 
-}
+
 
 
 

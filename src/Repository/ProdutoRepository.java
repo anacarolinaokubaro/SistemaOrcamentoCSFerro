@@ -76,6 +76,7 @@ public class ProdutoRepository <T>{
                 aCada,
                 dobra);
         listaProdutos.add(orcamento);
+        OrçamentoRepository.listaProdutosGravada.add(orcamento);
 
 
         System.out.println("Deseja inserir mais um produto?");
@@ -155,7 +156,7 @@ public class ProdutoRepository <T>{
                 qtdBarras2,
                 BitolaBarraFerroEnum.getBynumero(bitola3));
         listaProdutos.add(orcamento);
-
+        OrçamentoRepository.listaProdutosGravada.add(orcamento);
 
         System.out.println("Deseja inserir mais um produto?");
         String resposta = scanner.next().toUpperCase();
@@ -225,7 +226,7 @@ public class ProdutoRepository <T>{
                 aCada,
                 dobra);
         listaProdutos.add(orcamento);
-
+        OrçamentoRepository.listaProdutosGravada.add(orcamento);
 
         System.out.println("Deseja inserir mais um produto?");
         String resposta = scanner.next().toUpperCase();
@@ -281,6 +282,7 @@ public class ProdutoRepository <T>{
                 aCada,
                 dobra);
         listaProdutos.add(orcamento);
+        OrçamentoRepository.listaProdutosGravada.add(orcamento);
 
 
         System.out.println("Deseja inserir mais um produto?");
@@ -327,7 +329,7 @@ public class ProdutoRepository <T>{
                 medida1,
                 medida2);
         listaProdutos.add(orcamento);
-
+        OrçamentoRepository.listaProdutosGravada.add(orcamento);
 
         System.out.println("Deseja inserir mais um produto?");
         String resposta = scanner.next().toUpperCase();
@@ -385,7 +387,7 @@ public class ProdutoRepository <T>{
                 altura,
                 dobra);
         listaProdutos.add(orcamento);
-
+        OrçamentoRepository.listaProdutosGravada.add(orcamento);
 
         System.out.println("Deseja inserir mais um produto?");
         String resposta = scanner.next().toUpperCase();
@@ -420,7 +422,7 @@ public class ProdutoRepository <T>{
                 metragem,
                 dobra);
         listaProdutos.add(orcamento);
-
+        OrçamentoRepository.listaProdutosGravada.add(orcamento);
 
         System.out.println("Deseja inserir mais um produto?");
         String resposta = scanner.next().toUpperCase();
@@ -441,7 +443,7 @@ public class ProdutoRepository <T>{
 
         Arame orcamento = new Arame(qtdItens);
         listaProdutos.add(orcamento);
-
+        OrçamentoRepository.listaProdutosGravada.add(orcamento);
 
         System.out.println("Deseja inserir mais um produto?");
         String resposta = scanner.next().toUpperCase();
@@ -462,7 +464,7 @@ public class ProdutoRepository <T>{
 
         Tela orcamento = new Tela(qtdItens);
         listaProdutos.add(orcamento);
-
+        OrçamentoRepository.listaProdutosGravada.add(orcamento);
 
         System.out.println("Deseja inserir mais um produto?");
         String resposta = scanner.next().toUpperCase();

@@ -8,20 +8,25 @@ import java.util.Optional;
 
 public class Pedido extends Orçamento {
 
+    private static final long serialVersionUID = 1L;
 
     private int id;
+    private static int sequence;
 
-    public Pedido(Optional<CadastroCliente> cliente, List<Produto> produtos, List<Double> valor) {
+    public Pedido(String cliente, List<Produto> produtos, List<Double> valor, int id) {
         super(cliente, produtos, valor);
-        this.id++;
+        this.id = id;
     }
 
-
+    @Override
+    public int getId() {
+        return id;
+    }
 
     @Override
     public String toString() {
         return "|ID " + id +
-                " |Cliente:" + getCliente() +
+                "| Cliente: " + getCliente() +
                 ", produtos=" + getProdutos() +
                 ", valor=" + getValor() +
                 '}';

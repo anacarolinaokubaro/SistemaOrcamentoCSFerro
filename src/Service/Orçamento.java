@@ -1,33 +1,37 @@
 package Service;
 
-import Cliente.CadastroCliente;
 import Produtos.Produto;
 
+import java.io.Serializable;
 import java.util.List;
-import java.util.Optional;
 
-public class Orçamento {
+public class Orçamento implements Serializable {
 
-    private Optional <Cliente.CadastroCliente> cliente;
-    private List<Produto> produtos;
-    private List<Double> valor;
+    private static final long serialVersionUID = 1L;
+
+
+    private String cliente;
+    private List <Produto> produtos;
+    private List <Double> valor;
 
     private int id;
 
+    public static int sequence;
 
-    public Orçamento(Optional<CadastroCliente> cliente, List<Produto> produtos, List<Double> valor, int id) {
+
+    public Orçamento(String cliente, List <Produto> produtos,List <Double> valor) {
         this.cliente = cliente;
         this.produtos = produtos;
         this.valor = valor;
-        this.id = id++;
+        this.id = sequence++;
     }
 
-    public void setCliente(Optional<CadastroCliente> cliente) {
-        this.cliente = cliente;
-    }
-
-    public Optional<CadastroCliente> getCliente() {
+    public String getCliente() {
         return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
     }
 
     public List<Produto> getProdutos() {
@@ -53,7 +57,7 @@ public class Orçamento {
     @Override
     public String toString() {
         return "|ID " + id +
-                " |Cliente:" + cliente +
+                "| Cliente: " + cliente +
                 ", produtos=" + produtos +
                 ", valor=" + valor +
                 '}';

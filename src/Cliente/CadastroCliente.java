@@ -1,12 +1,13 @@
 package Cliente;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class CadastroCliente {
+public class CadastroCliente implements Serializable {
 
-
+private static final long serialVersionUID = 1L;
         private String nome;
         private String endObra;
         private String CPFouCNPJ;

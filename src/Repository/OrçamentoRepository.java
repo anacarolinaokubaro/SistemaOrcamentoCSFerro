@@ -1,6 +1,7 @@
 package Repository;
 
 import Cliente.CadastroCliente;
+import Produtos.Produto;
 import Service.OrçamentoService;
 import Service.Orçamento;
 
@@ -8,15 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class OrçamentoRepository {
+public class OrçamentoRepository <T>{
 
     public static List<Orçamento> listaOrçamento = new ArrayList<>();
 
+    public static List<Produto> listaProdutosGravada = new ArrayList<>();
+
+    public static List<Double> listaValoresGravada = new ArrayList<>();
+
+
+
     public static void cadastrarListaOrçamento(String nome) {
-      var cliente = ClienteRepository.clientesCadastrados.stream().filter(item -> item.getNome().equals(nome)).findFirst();
-      for (int i=0; i< ProdutoRepository.listaProdutos.ge)
-      var orçamento = new Orçamento(cliente,produtos,valores);
-      listaOrçamento.add(orçamento);
+    Orçamento orçamento = new Orçamento(ClienteRepository.imprimirClientePorNome(nome), listaProdutosGravada, listaValoresGravada);
+    listaOrçamento.add(orçamento);
     }
 
     public static void imprimirOrçamentos (){

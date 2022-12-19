@@ -63,6 +63,7 @@ public class OrçamentoService <T> {
                 valorItem = ((item2.valorBarraFerro() * item2.valorMargem(margem)));
             } else System.out.println("Escolha um produto da lista.");
             listTotal.add(valorItem);
+            OrçamentoRepository.listaValoresGravada.add(valorItem);
         }
     }
 
@@ -72,7 +73,7 @@ public class OrçamentoService <T> {
         for (int i = 0; i < ProdutoRepository.listaProdutos.size(); i++)
         {
             System.out.printf(ProdutoRepository.listaProdutos.get(i) + "|\n R$ %.2f \n", listTotal.get(i));
-                  }
+        }
     }
 
 
@@ -84,17 +85,14 @@ public class OrçamentoService <T> {
         calculoOrcamento();
 
         System.out.printf("\n\n   CS FERRO E AÇO           Fone:        (11) 96841-5179           CNPJ:        37.115.947/0001-58\n\n " + LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/YYYY")) + "\n\nORÇAMENTO PARA:");
-        ClienteRepository.imprimirClientePorNome(nome);
+        OrçamentoRepository.cadastrarListaOrçamento(nome);
         System.out.println("\n\nOs produtos cotados e seus respectivos custos são:");
         imprimirListaProdutoseTotal();
         System.out.printf("\nVALOR TOTAL : R$ %.2f ",listTotal.stream().mapToDouble(item -> item.doubleValue()).sum());
         System.out.println("\nCondição de pagamento à vista até o dia "+ LocalDate.now().plusDays(5).format(DateTimeFormatter.ofPattern("dd/MM/YYYY")));
 
-        OrçamentoRepository.cadastrarListaOrçamento(nome);
-        OrçamentoRepository.listaOrçamento.stream().forEach(System.out::println);
         listTotal.clear();
         ProdutoRepository.listaProdutos.clear();
-        OrçamentoRepository.listaOrçamento.stream().forEach(System.out::println);
     }
 
 

@@ -8,6 +8,7 @@ import Repository.PedidoRepository;
 import Repository.ProdutoRepository;
 import com.sun.jdi.Value;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -20,10 +21,10 @@ public class Principal {
 
     Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
 
 
-        final int SAIR_DO_SISTEMA = 4;
+        final int SAIR_DO_SISTEMA = 7;
         int opcaoSelecionada = 0;
         do {
 
