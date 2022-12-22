@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9d65bff8-3d81-43b6-95c9-3a4cca661445" name="Changes" comment="GRAVANDO CLIENTES EM CSV">
+    <list default="true" id="9d65bff8-3d81-43b6-95c9-3a4cca661445" name="Changes" comment="Ajuste stream.filter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Principal/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Principal/Principal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ClienteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ClienteRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/OrçamentoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/OrçamentoRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/PedidoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PedidoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ProdutoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProdutoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/CadastroClientes.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/CadastroClientes.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/GravadorBancodeDados.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/GravadorBancodeDados.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/OrçamentoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/OrçamentoService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,7 +235,28 @@
       <option name="project" value="LOCAL" />
       <updated>1671493540125</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Gerei arquivos Clientes e Orçamento write/read ok">
+      <created>1671719148725</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1671719148725</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Gerei arquivos Clientes e Orçamento write/read ok">
+      <created>1671719305630</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1671719305630</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Ajuste stream.filter">
+      <created>1671720329953</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1671720329953</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,7 +286,9 @@
     <MESSAGE value="ajuste sout" />
     <MESSAGE value="try catch e stream" />
     <MESSAGE value="GRAVANDO CLIENTES EM CSV" />
-    <option name="LAST_COMMIT_MESSAGE" value="GRAVANDO CLIENTES EM CSV" />
+    <MESSAGE value="Gerei arquivos Clientes e Orçamento write/read ok" />
+    <MESSAGE value="Ajuste stream.filter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajuste stream.filter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

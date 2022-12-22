@@ -21,15 +21,16 @@ public class PedidoRepository {
         System.out.println("Qual ID do orçamento que você deseja converter em Pedido? ");
         int id = scanner.nextInt();
         var filtrado = OrçamentoRepository.listaOrçamento.stream().filter(item -> item.getId() == id).findFirst().orElse(null);
-       if (filtrado == null
+       if (filtrado != null
        ){
-           System.out.println("Não encontramos esse id, favor verificar na lista de orçamentos");
-       } else {
            System.out.println("Orçamento convertido para pedido");
            listaPedido.add((Pedido)filtrado);
            OrçamentoRepository.listaOrçamento.remove(filtrado);
            GravadorBancodeDados.writeOrçamentoList();
            GravadorBancodeDados.writePedidoList();
+
+       } else {
+           System.out.println("Não encontramos esse id, favor verificar na lista de orçamentos");
        }
     }
 
