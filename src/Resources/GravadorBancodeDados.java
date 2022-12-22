@@ -2,6 +2,10 @@ package Resources;
 
 import Cliente.CadastroCliente;
 import Repository.ClienteRepository;
+import Repository.OrçamentoRepository;
+import Repository.PedidoRepository;
+import Service.Orçamento;
+import Service.Pedido;
 
 import javax.imageio.IIOException;
 import java.io.*;
@@ -37,20 +41,85 @@ public class GravadorBancodeDados {
     }
 
     public static List readArquivoCliente() throws IOException, ClassNotFoundException {
-        var list = new ArrayList();
-        try (var in = new FileInputStream(Path.of(caminhoDoArquivoCadastroCliente).toFile())) {
+        var list = new ArrayList<CadastroCliente>();
+        try
+            (var in = new ObjectInputStream( new BufferedInputStream( new FileInputStream(Path.of(caminhoDoArquivoCadastroCliente).toFile())))) {
             while (true) {
-                ObjectInputStream os = new ObjectInputStream(in);
-                var objeto = os.readObject();
-                list.add(objeto);
+                var objeto = in.readObject();
+                if (objeto instanceof CadastroCliente c)
+                    list.add(c);
             }
         } catch (EOFException e) {
-            System.out.printf("");
         }
+        list.stream().toList().forEach(System.out::println);
         return list;
     }
 
 
-
+    public static void writeOrçamentoList() throws IOException {
+        OutputStream os = null;
+        try {
+            os = new FileOutputStream(Path.of(caminhoDoArquivoOrçamento).toFile());
+            ObjectOutputStream oos = new ObjectOutputStream(os);
+            for (Orçamento orçamento: OrçamentoRepository.listaOrçamento
+            ) {
+                oos.writeObject(orçamento);
+            }
+            oos.flush();
+        } finally {
+            if (os != null) {
+                os.close();
+            }
+        }
     }
+
+    public static List readArquivoOrçamento() throws IOException, ClassNotFoundException {
+        var list = new ArrayList<Orçamento>();
+        try
+                (var in = new ObjectInputStream( new BufferedInputStream( new FileInputStream(Path.of(caminhoDoArquivoOrçamento).toFile())))) {
+            while (true) {
+                var objeto = in.readObject();
+                if (objeto instanceof Orçamento o)
+                    list.add(o);
+            }
+        } catch (EOFException e) {
+        }
+        list.stream().toList().forEach(System.out::println);
+        return list;
+    }
+
+
+    public static void writePedidoList() throws IOException {
+        OutputStream os = null;
+        try {
+            os = new FileOutputStream(Path.of(caminhoDoArquivoPedido).toFile());
+            ObjectOutputStream oos = new ObjectOutputStream(os);
+            for (Pedido pedido: PedidoRepository.listaPedido
+            ) {
+                oos.writeObject(pedido);
+            }
+            oos.flush();
+        } finally {
+            if (os != null) {
+                os.close();
+            }
+        }
+    }
+
+    public static List readArquivoPedido() throws IOException, ClassNotFoundException {
+        var list = new ArrayList<Pedido>();
+        try
+                (var in = new ObjectInputStream( new BufferedInputStream( new FileInputStream(Path.of(caminhoDoArquivoPedido).toFile())))) {
+            while (true) {
+                var objeto = in.readObject();
+                if (objeto instanceof Pedido p)
+                    list.add(p);
+            }
+        } catch (EOFException e) {
+        }
+        list.stream().toList().forEach(System.out::println);
+        return list;
+    }
+
+}
 

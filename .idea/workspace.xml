@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9d65bff8-3d81-43b6-95c9-3a4cca661445" name="Changes" comment="try catch e stream">
+    <list default="true" id="9d65bff8-3d81-43b6-95c9-3a4cca661445" name="Changes" comment="GRAVANDO CLIENTES EM CSV">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cliente/CadastroCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cliente/CadastroCliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Principal/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Principal/Principal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Produtos/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Produtos/Produto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/ClienteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ClienteRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/OrçamentoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/OrçamentoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/PedidoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PedidoRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/ProdutoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProdutoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/CadastroClientes.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/CadastroClientes.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Resources/GravadorBancodeDados.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/GravadorBancodeDados.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Orçamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Orçamento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/OrçamentoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/OrçamentoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Pedido.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +49,8 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/55119/Downloads/csferroeaco&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -229,7 +228,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670352509652</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="GRAVANDO CLIENTES EM CSV">
+      <created>1671493444860</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1671493444860</updated>
+    </task>
+    <task id="LOCAL-00014" summary="GRAVANDO CLIENTES EM CSV">
+      <created>1671493540125</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1671493540125</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,33 +271,21 @@
     <MESSAGE value="inclusão Estribo viga2" />
     <MESSAGE value="ajuste sout" />
     <MESSAGE value="try catch e stream" />
-    <option name="LAST_COMMIT_MESSAGE" value="try catch e stream" />
+    <MESSAGE value="GRAVANDO CLIENTES EM CSV" />
+    <option name="LAST_COMMIT_MESSAGE" value="GRAVANDO CLIENTES EM CSV" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Repository/OrçamentoRepository.java</url>
-          <line>28</line>
+          <line>31</line>
           <option name="timeStamp" value="57" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Principal/Principal.java</url>
           <line>46</line>
           <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Repository/PedidoRepository.java</url>
-          <line>19</line>
-          <properties>
-            <option name="lambda-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Repository/PedidoRepository.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="60" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />

@@ -5,6 +5,7 @@ import Repository.ClienteRepository;
 import Repository.OrçamentoRepository;
 import Repository.ProdutoRepository;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -77,7 +78,7 @@ public class OrçamentoService <T> {
     }
 
 
-    public static void imprimirOrcamento(){
+    public static void imprimirOrcamento() throws IOException {
         LocalDate hoje = LocalDate.now();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Digite o nome do cliente:");

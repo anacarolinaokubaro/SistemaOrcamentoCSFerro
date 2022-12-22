@@ -6,6 +6,7 @@ import Produtos.*;
 import Service.OrçamentoService;
 import org.w3c.dom.ls.LSOutput;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class ProdutoRepository <T>{
 
     public static List<Produto> listaProdutos = new ArrayList<>();
 
-    public static void viga() {
+    public static void viga() throws IOException {
         Scanner scanner = new Scanner(System.in);
 
 
@@ -91,7 +92,7 @@ public class ProdutoRepository <T>{
 
 
 
-    public static void viga2Bitolas() {
+    public static void viga2Bitolas() throws IOException {
         Scanner scanner = new Scanner(System.in);
 
 
@@ -170,7 +171,7 @@ public class ProdutoRepository <T>{
 
 
 
-    public static void coluna() {
+    public static void coluna() throws IOException {
         Scanner scanner = new Scanner(System.in);
 
 
@@ -239,7 +240,7 @@ public class ProdutoRepository <T>{
     }
 
 
-    public static void estaca() {
+    public static void estaca() throws IOException {
         Scanner scanner = new Scanner(System.in);
 
 
@@ -297,7 +298,7 @@ public class ProdutoRepository <T>{
 
 
 
-    public static void estribo() {
+    public static void estribo() throws IOException {
         Scanner scanner = new Scanner(System.in);
 
 
@@ -342,7 +343,7 @@ public class ProdutoRepository <T>{
     }
 
 
-    public static void sapata() {
+    public static void sapata() throws IOException {
         Scanner scanner = new Scanner(System.in);
 
 
@@ -400,7 +401,7 @@ public class ProdutoRepository <T>{
     }
 
 
-    public static void barra() {
+    public static void barra() throws IOException {
         Scanner scanner = new Scanner(System.in);
 
 
@@ -434,7 +435,7 @@ public class ProdutoRepository <T>{
 
     }
 
-    public static void arame() {
+    public static void arame() throws IOException {
         Scanner scanner = new Scanner(System.in);
 
 
@@ -455,7 +456,7 @@ public class ProdutoRepository <T>{
 
     }
 
-    public static void tela() {
+    public static void tela() throws IOException {
         Scanner scanner = new Scanner(System.in);
 
 

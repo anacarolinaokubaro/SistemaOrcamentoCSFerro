@@ -42,8 +42,8 @@ public class ClienteRepository <T> {
 
     public static void imprimirListaClientes() throws IOException, ClassNotFoundException {
 
-        System.out.println("____________Total de clientes cadastrados: "+ CadastroCliente.ID + "| LISTA:_____________");
-        clientesCadastrados.stream().sorted(Comparator.comparing(CadastroCliente::getNome)) .forEach(System.out::println);
+        System.out.println("____________Total de clientes cadastrados | LISTA:_____________");
+
         GravadorBancodeDados.readArquivoCliente();
 
     }

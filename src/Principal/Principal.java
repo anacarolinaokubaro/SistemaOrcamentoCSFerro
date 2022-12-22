@@ -125,8 +125,10 @@ public class Principal {
         } catch (IllegalArgumentException e){
             System.out.println("Opção não faz parte do Menu, digite corretamente.");
             orcamento();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-        }
+    }
 
 
     }

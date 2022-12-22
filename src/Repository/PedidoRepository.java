@@ -1,9 +1,12 @@
 package Repository;
 
+import Resources.GravadorBancodeDados;
 import Service.Orçamento;
 import Service.OrçamentoService;
 import Service.Pedido;
 
+import javax.imageio.IIOException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -13,7 +16,7 @@ public class PedidoRepository {
 
     public static List<Pedido> listaPedido = new ArrayList<>();
 
-    public static void cadastrarListaPedido (){
+    public static void cadastrarListaPedido () throws IOException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Qual ID do orçamento que você deseja converter em Pedido? ");
         int id = scanner.nextInt();
@@ -24,12 +27,13 @@ public class PedidoRepository {
            System.out.println("Orçamento convertido para pedido");
            listaPedido.add((Pedido)filtrado);
            OrçamentoRepository.listaOrçamento.remove(filtrado);
+           GravadorBancodeDados.writeOrçamentoList();
+           GravadorBancodeDados.writePedidoList();
        }
     }
 
-    public static void imprimirPedidos (){
+    public static void imprimirPedidos () throws IOException, ClassNotFoundException {
         System.out.println("____________Total de orçmentos cadastrados:_____________");
-        listaPedido.stream().forEach(System.out::println);
-
+        GravadorBancodeDados.readArquivoPedido();
     }
 }
